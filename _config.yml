@@ -1,8 +1,10 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: SPAGRM
+description: A tutorial on how to use SPAGRM.
 theme: just-the-docs
 
-url: https://fantasy-xuhe.github.io/SPAGRM.github.io/
+baseurl: SPAGRM.github.io/
+url: https://fantasy-xuhe.github.io/
+github_username:  Fantasy-XuHe
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
