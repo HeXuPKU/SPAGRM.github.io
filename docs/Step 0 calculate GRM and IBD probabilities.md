@@ -17,6 +17,6 @@ We can use  ```getSparseGRM``` function in ```GRAB``` package to construct a spa
 
 ## About function ```getPairwiseIBD```
 
-We can use  ```getPairwiseIBD``` function in ```GRAB``` package to construct a sparse GRM file. Pairwise IBD Probability file is only required for SPA<sub>GRM</sub>, so we only introduce it here.
+We can use  ```getPairwiseIBD``` function in ```GRAB``` package to construct a pairwise IBD probability file. Pairwise IBD Probability file is only required for SPA<sub>GRM</sub>, so we introduce it here.
 
 ## Step 0: Prepare PLINK binary files
