@@ -39,23 +39,24 @@ getTempFilesFullGRM(PlinkFile,
                     minMafGRM = 0.01,
                     maxMissingGRM = 0.1,
                     threadNum = 8)
-
-# PlinkFile: required. A path to PLINK files (without file extensions of bed/bim/fam).
-
-# nPartsGRM: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250.
-
-# partParallel: required. A numeric value (from 1 to nPartsGRM) to split all jobs for parallel computation.
-
-# tempDir: optional. A path to store temp files to be passed to getSparseGRM. Default is system.file("SparseGRM", "temp", package = "GRAB"). If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of getSparseGRM!
-
-# subjData: optional. A character vector to specify subject IDs to retain (i.e. IID). Default is NULL, i.e. all subjects are retained in sparse GRM.
-
-# minMafGRM: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
-
-# maxMissingGRM: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
-
-# threadNum: optional. Number of threads (CPUs) to use.
 ```
+
+- PlinkFile: required. A path to PLINK files (without file extensions of bed/bim/fam).
+
+- nPartsGRM: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250.
+
+- partParallel: required. A numeric value (from 1 to nPartsGRM) to split all jobs for parallel computation.
+
+- tempDir: optional. A path to store temp files to be passed to getSparseGRM. Default is system.file("SparseGRM", "temp", package = "GRAB"). If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of getSparseGRM!
+
+- subjData: optional. A character vector to specify subject IDs to retain (i.e. IID). Default is NULL, i.e. all subjects are retained in sparse GRM.
+
+- minMafGRM: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
+
+- maxMissingGRM: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
+
+- threadNum: optional. Number of threads (CPUs) to use.
+
 
 **Example:**
 
