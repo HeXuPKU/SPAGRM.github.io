@@ -9,8 +9,6 @@ has_children: false
 
 # Make a Sparse GRM file
 
-User can refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file. So that you can ignore below tutorial and directly turn to ```Make a Pairwise IBD Probability file``` section.
-
 ## About function ```getSparseGRM```
 
 We can use  ```getSparseGRM``` function in ```GRAB``` package to construct a sparse GRM file, which implicitly uses ```GCTA``` software to make a SparseGRMFile to be passed to function ```GRAB.NullModel```. As required by ```GCTA``` software, the function ```getSparseGRM``` is only supported in Linux operation system and PLINK binary files with the same prefix are required.
@@ -137,12 +135,6 @@ print(SparseGRM)
 # 2551: Subj-500 Subj-500 0.9783296
 ```
 
-```SparseGRMFile``` will latter be used for calculating IBD probabilities. If users use other 
+```SparseGRMFile``` will latter be used for calculating IBD probabilities. If users use other software to calculate a sparse GRM, please convert it to the form above. The column names of sparseGRM file should be exactly ```ID1```, ```ID2``` and ```Value```!
 
-# Make a Pairwise IBD Probability file
-
-## About function ```getPairwiseIBD```
-
-We can use  ```getPairwiseIBD``` function in ```GRAB``` package to construct a pairwise IBD probability file. Pairwise IBD Probability file is only required for SPA<sub>GRM</sub>, so we introduce it here.
-
-## Step 0: Prepare PLINK binary files
+User can also refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
