@@ -20,6 +20,8 @@ SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedne
   - Two individuals who have a non-zero element in sparse GRM is assumed in a family, and families are indipedent to each other.
 - Estimate precise distributions of genotypes.
   - GRM can be used to estimate the variance of genotypes. But it's limited to estimate more precise distributions of genotypes.
+  - To understand this, just see the above example. The kinship coefficient (half of the corrsponding element in GRM) for N-1 and N-3 is 0.25, and the the kinship coefficient for N-3 and N-4 is also 0.25. The kinship coefficient for these two pairs are same, but they are genetically different!
+  - Therefore, we introduce identity by descent sharing probabilities, which can exactly describe the genotype distribution between two individuals.
 
 # Identity by Descent (IBD)
 
