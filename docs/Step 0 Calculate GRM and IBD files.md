@@ -29,3 +29,12 @@ At a genetic locus, alleles that are inherited copies of a common ancestral alle
 generally used for referring to recent, rather than ancient, common ancestry. IBD-sharing probabilities are widely used in genetic analyses of samples with related individuals. 
 
 Denote $\delta$<sub>ij</sub><sup>(0)</sup>, $\delta$<sub>ij</sub><sup>(1)</sup>, and $\delta$<sub>ij</sub><sup>(2)</sup> to be the probability that two subjects _i_ and _j_ share 0, 1, and 2 alleles identical by decent, respectively, at a locus. $\Phi$<sub>ij</sub> is the kinship coefficient for _i_ and _j_ (half of the corrsponding element in GRM). Then the kinship coefficient and IBD-sharing probabilities have the function: $\Phi$<sub>ij</sub> = 1/2 $\delta$<sub>ij</sub><sup>(2)</sup> + 1/4 $\delta$<sub>ij</sub><sup>(1)</sup>.
+
+To understand this, just see below examples.
+
+- N-1 and N-3 always share one allele in a genetic locus, so that their IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0, $\delta$<sub>ij</sub><sup>(1)</sup> = 1, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0. The kinship coefficient is 1/2 $\times$ 0 + 1/4 $\times$ 1 = 0.25.
+  - If genotype of N-1 is `AA` in one locus, then N-3 must have at least one `A` in this locus, regardless of other circumstances.
+  - If genotype of N-1 is `aa` in one locus, then N-3 must have at least one `a` in this locus, regardless of other circumstances.
+
+- N-3 and N-4's IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = $\cfrac {1}{4}$, $\delta$<sub>ij</sub><sup>(1)</sup> = $\cfrac {1}{2}$, and $\delta$<sub>ij</sub><sup>(2)</sup> = $\cfrac {1}{2}$. The kinship coefficient is 1/2 $\times$ $\cfrac {1}{4}$ + 1/4 $\times$ $\cfrac {1}{2}$ = 0.25.
+  - If genotypes of N-1 and N-2 are both `Aa` in one locus, then there is a $\cfrac {1}{4}$ probability that the genotype of N-3 is `AA`, a $\cfrac {1}{2}$ probability that N-3 is `Aa`, and a $\cfrac {1}{4}$ probability that N-3 is `aa`, so as N-4. Therefore, N-3 and N-4 have a 0.25 probability of sharing two alleles, a 0.5 probability of sharing one allele, and a 0.25 probability of sharing no alleles in one locus.
