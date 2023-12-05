@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Step 0 calculate GRM and IBD probabilities
-nav_order: 2
+title: Step 1 Fit the null model
+nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: false
 has_toc: false
