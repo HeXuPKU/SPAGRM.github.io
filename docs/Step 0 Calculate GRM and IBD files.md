@@ -48,5 +48,5 @@ To understand this, just see below examples.
   - If genotype of N-1 is `AA` in one locus, then N-3 must have at least one `A` in this locus, regardless of other circumstances.
   - If genotype of N-1 is `aa` in one locus, then N-3 must have at least one `a` in this locus, regardless of other circumstances.
 
-- N-3 and N-4's IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = $\cfrac {1}{4}$, $\delta$<sub>ij</sub><sup>(1)</sup> = $\cfrac {1}{2}$, and $\delta$<sub>ij</sub><sup>(2)</sup> = $\cfrac {1}{2}$. The kinship coefficient is 1/2 $\times$ $\cfrac {1}{4}$ + 1/4 $\times$ $\cfrac {1}{2}$ = 0.25.
+- N-3 and N-4's IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0.25, $\delta$<sub>ij</sub><sup>(1)</sup> = 0.5, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0.25. The kinship coefficient is 1/2 $\times$ 0.25 + 1/4 $\times$ 0.5 = 0.25.
   - If genotypes of N-1 and N-2 are both `Aa` in one locus, then there is a 0.25 probability that the genotype of N-3 is `AA`, a 0.5 probability that N-3 is `Aa`, and a 0.25 probability that N-3 is `aa`, so as N-4. Therefore, N-3 and N-4 have a 0.25 probability of sharing two alleles, a 0.5 probability of sharing one allele, and a 0.25 probability of sharing no alleles in one locus.
