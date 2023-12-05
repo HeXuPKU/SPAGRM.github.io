@@ -25,3 +25,7 @@ SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedne
 
 # Identity by Descent (IBD)
 
+At a genetic locus, alleles that are inherited copies of a common ancestral allele are said to be identical by descent. The term identical by descent is
+generally used for referring to recent, rather than ancient, common ancestry. IBD-sharing probabilities are widely used in genetic analyses of samples with related individuals. 
+
+Denote $\delta$<sub>ij</sub><sup>(0)</sup>, $\delta$<sub>ij</sub><sup>(1)</sup>, and $\delta$<sub>ij</sub><sup>(2)</sup> to be the probability that two subjects _i_ and _j_ share 0, 1, and 2 alleles identical by decent, respectively, at a locus. $\Phi$<sub>ij</sub> is the kinship coefficient for _i_ and _j_ (half of the corrsponding element in GRM). Then the kinship coefficient and IBD-sharing probabilities have the function: $\Phi$<sub>ij</sub> = 1/2 $\delta$<sub>ij</sub><sup>(2)</sup> + 1/4 $\delta$<sub>ij</sub><sup>(1)</sup>.
