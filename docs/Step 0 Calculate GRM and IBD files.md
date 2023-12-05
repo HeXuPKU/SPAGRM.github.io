@@ -16,6 +16,10 @@ For example, consider a family with four members. The pedigree and the correspon
 ![GRM](https://raw.githubusercontent.com/Fantasy-XuHe/SPAGRM.github.io/main/docs/assets/images/GRM.png)
 
 SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedness. SPA<sub>GRM</sub> uses the sparse GRM to 
-- capture close family relationships.
-- - aaa
-- estimate precise distribution of genotypes.
+- Capture close family relationships.
+  - Two individuals who have a non-zero element in sparse GRM is assumed in a family, and families are indipedent to each other.
+- Estimate precise distributions of genotypes.
+  - GRM can be used to estimate the variance of genotypes. But it's limited to estimate more precise distributions of genotypes.
+
+# Identity by Descent (IBD)
+
