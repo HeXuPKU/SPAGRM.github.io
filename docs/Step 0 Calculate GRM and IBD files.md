@@ -17,5 +17,5 @@ For example, consider a family with four members. The pedigree and the correspon
 
 SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedness. SPA<sub>GRM</sub> uses the sparse GRM to 
 - capture close family relationships.
--- 
+- - aaa
 - estimate precise distribution of genotypes.
