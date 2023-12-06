@@ -9,10 +9,6 @@ has_children: false
 
 # Make a Sparse GRM file
 
-## About function ```getSparseGRM```
-
-We can use  ```getSparseGRM``` function in ```GRAB``` package to construct a sparse GRM file, which implicitly uses ```GCTA``` software to make a SparseGRMFile to be passed to function ```GRAB.NullModel```. As required by ```GCTA``` software, the function ```getSparseGRM``` is only supported in Linux operation system and PLINK binary files with the same prefix are required.
-
 ## Prepare PLINK binary files
 
 PLINK binary files with high-quality genotyped variants are required to make a sparse GRM. For example, we used 227,437 LD pruned, high-quality genetic variants (MAF > 0.05 and missing rate < 0.05) to calculate sparse GRM and IBD probibalities in SPA<sub>GRM</sub> paper. Use the command below to extract high-quality genetic variants in PLINK:
@@ -25,10 +21,10 @@ PLINK binary files with high-quality genotyped variants are required to make a s
 
 Before next step, you should have below PLINK binary files:
 ```
-*.bed;   *.bim;   *.fam (* is the same prefix of the PLINK binary files)
+*.bed;   *.bim;   *.fam (* should be the same prefix of the PLINK binary files)
 ```
 
-## Run ```getTempFilesFullGRM``` to get temporary files
+## Run `getTempFilesFullGRM` to get temporary files
 
 ```
 getTempFilesFullGRM(PlinkFile,
@@ -47,7 +43,7 @@ getTempFilesFullGRM(PlinkFile,
 
 - partParallel: required. A numeric value (from 1 to nPartsGRM) to split all jobs for parallel computation.
 
-- tempDir: optional. A path to store temp files to be passed to ```getSparseGRM```. Default is system.file("SparseGRM", "temp", package = "GRAB"). If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of ```getSparseGRM```!
+- tempDir: optional. A path to store temp files to be passed to `getSparseGRM`. Default is system.file("SparseGRM", "temp", package = "GRAB"). If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of `getSparseGRM`!
 
 - subjData: optional. A character vector to specify subject IDs to retain (i.e. IID). Default is NULL, i.e. all subjects are retained in sparse GRM.
 
@@ -71,7 +67,7 @@ for(partParallel in 1:nPartsGRM)
 }
 ```
 
-## Run ```getSparseGRM``` to combine the temporary files
+## Run `getSparseGRM` to combine the temporary files
 
 ```
 getSparseGRM(PlinkFile,
@@ -84,13 +80,13 @@ getSparseGRM(PlinkFile,
              rm.tempFiles = FALSE)
 ```
 
-- PlinkFile: required. A path to PLINK files (without file extensions of bed/bim/fam). It should be the same as used in ```getTempFilesFullGRM``` function.
+- PlinkFile: required. A path to PLINK files (without file extensions of bed/bim/fam). It should be the same as used in `getTempFilesFullGRM` function.
 
-- nPartsGRM: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250. It should be the same as used in ```getTempFilesFullGRM``` function.
+- nPartsGRM: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250. It should be the same as used in `getTempFilesFullGRM` function.
 
 - SparseGRMFile: required. A file path to store sparse GRM. (e.g. *.txt)
 
-- tempDir: optional. A path to store temp files from ```getTempFilesFullGRM```. Default is system.file("SparseGRM", "temp", package = "GRAB"). This should be consistent to the input of ```getTempFilesFullGRM```!
+- tempDir: optional. A path to store temp files from `getTempFilesFullGRM`. Default is system.file("SparseGRM", "temp", package = "GRAB"). This should be consistent to the input of `getTempFilesFullGRM`!
 
 - relatednessCutoff: optional. A cutoff for sparse GRM, only kinship coefficient greater than this cutoff will be retained in sparse GRM. (default=0.05)
 
@@ -98,7 +94,7 @@ getSparseGRM(PlinkFile,
 
 - maxMissingGRM: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
 
-- rm.tempFiles: optional. A logical value indicating if the temp files generated in ```getTempFilesFullGRM``` will be deleted. (default=FALSE)
+- rm.tempFiles: optional. A logical value indicating if the temp files generated in `getTempFilesFullGRM` will be deleted. (default=FALSE)
 
 **Example:**
 
@@ -113,9 +109,9 @@ getSparseGRM(PlinkPrefix,
              relatednessCutoff = 0.05)
 ```
 
-## About the ```SparseGRMFile```
+## About the `SparseGRMFile`
 
-The below gives more details about the ```SparseGRMFile```:
+The below gives more details about the `SparseGRMFile`:
 
 ```
 SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
@@ -135,6 +131,12 @@ print(SparseGRM)
 # 2551: Subj-500 Subj-500 0.9783296
 ```
 
-```SparseGRMFile``` will latter be used for calculating IBD probabilities. If users use other software to calculate a sparse GRM, please convert it to the form above. The column names of sparseGRM file should be exactly ```ID1```, ```ID2``` and ```Value```!
+`SparseGRMFile` will latter be used for calculating IBD probabilities. 
 
-User can also refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
+> [!NOTE]
+> 
+> `GRAB` package implicitly uses `GCTA` software to make the sparse GRM. As required by `GCTA` software, the function `getSparseGRM` is only supported in Linux operation system and PLINK binary files with the same prefix are required.
+> 
+> If users use other software (e.g. `GCTA`) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly `ID1`, `ID2` and `Value`!
+> 
+> User can also refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
