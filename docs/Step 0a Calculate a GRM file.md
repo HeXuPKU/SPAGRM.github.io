@@ -21,7 +21,7 @@ PLINK binary files with high-quality genotyped variants are required to make a s
 
 Before next step, you should have below PLINK binary files:
 ```
-*.bed;   *.bim;   *.fam (* should be the same prefix of the PLINK binary files)
+XXX.bed,   XXX.bim;   XXX.fam (XXX should be the same prefix of the PLINK binary files)
 ```
 
 ## Run `getTempFilesFullGRM` to get temporary files
@@ -84,7 +84,7 @@ getSparseGRM(PlinkFile,
 
 - nPartsGRM: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250. It should be the same as used in `getTempFilesFullGRM` function.
 
-- SparseGRMFile: required. A file path to store sparse GRM. (e.g. *.txt)
+- SparseGRMFile: required. A file path to store sparse GRM. (e.g. XXX.txt)
 
 - tempDir: optional. A path to store temp files from `getTempFilesFullGRM`. Default is system.file("SparseGRM", "temp", package = "GRAB"). This should be consistent to the input of `getTempFilesFullGRM`!
 
