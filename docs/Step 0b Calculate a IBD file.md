@@ -21,4 +21,7 @@ In addition to the `XXX.bed`, `XXX.bim`, and `XXX.fam` files, `XXX.frq` file is 
 --freq --out XXX
 ```
 
-
+Before next step, you should have below PLINK binary files:
+```
+XXX.bed,   XXX.bim,   XXX.fam (XXX should be the same prefix of the PLINK binary files)
+```
