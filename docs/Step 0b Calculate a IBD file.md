@@ -13,4 +13,8 @@ We can use  `getPairwiseIBD` function in `GRAB` package to construct a pairwise 
 
 ## Prepare PLINK binary files
 
+Similar to calculating the sparse GRM, PLINK binary files with high-quality genotyped variants are required to make a pairwise IBD probability file. We recommend using the same PLINK binary files to calculate the sparse GRM file and then the pairwise IBD file.
+
+In addition to the `*.bed`, `*.bim`, and `*.fam` files, `*.frq` file is also required for `getPairwiseIBD` function!
+
 
