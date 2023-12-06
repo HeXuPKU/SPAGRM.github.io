@@ -11,4 +11,6 @@ has_children: false
 
 We can use  `getPairwiseIBD` function in `GRAB` package to construct a pairwise IBD probability file. Pairwise IBD Probability file is only required for SPA<sub>GRM</sub>, so we introduce it here.
 
-## Step 0: Prepare PLINK binary files
+## Prepare PLINK binary files
+
+
