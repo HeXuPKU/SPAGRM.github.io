@@ -68,3 +68,25 @@ getPairwiseIBD(PlinkPrefix,
                PairwiseIBDFile = PairwiseIBDFile,
                frqFile = PlinkPrefix)
 ```
+
+## About the `PairwiseIBDFile`
+
+The below gives more details about the `PairwiseIBDFile`:
+
+```
+PairwiseIBDFile = system.file("PairwiseIBD", "PairwiseIBD.txt", package = "GRAB")
+PairwiseIBD = data.table::fread(PairwiseIBDFile)
+print(PairwiseIBD)
+#            ID1   ID2          pa        pb         pc
+#    1:     f1_5  f1_1 0.000000000 0.9296191 0.07038087
+#    2:     f1_5  f1_2 0.075526555 0.8916187 0.03285475
+#    3:     f1_6  f1_1 0.000000000 0.9466187 0.05338126
+#    4:     f1_6  f1_2 0.052087250 0.9223602 0.02555257
+#    5:     f1_6  f1_5 0.234476107 0.4995024 0.26602145
+#   ---                                                
+# 1547:   f50_10 f50_6 0.008918206 0.9413302 0.04975162
+# 1548:   f50_10 f50_7 0.000000000 0.2184961 0.78150387
+# 1549:   f50_10 f50_8 0.000000000 0.2533571 0.74664295
+# 1550:   f50_10 f50_9 0.253726918 0.4999724 0.24630066
+# 1551: Subj-293 f34_3 0.000000000 0.1040877 0.89591230
+```
