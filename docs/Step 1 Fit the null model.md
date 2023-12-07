@@ -13,4 +13,5 @@ SPA<sub>GRM</sub> is designed as a universal GWAS analysis framework for various
 
 For SPA<sub>GRM</sub>, it is optional, rather than required, to incorporate a random effect to characterize sample relatedness. Therefore, SPA<sub>GRM</sub> is particularly suitable for the analysis of complex traits with complicated structure, and the application of complex statistical models.
 
-To conduct a GWAS analysis containing related subjects, users only need to fit the null model only once with/without incorporating random effcts and obtain model residuals defined as the gradient of the likelihood function. we will latter show you how to implement it through longitudinal, quantitative, binary trait analysis.
+To conduct a GWAS analysis containing related subjects, users only need to fit the null model only once with/without incorporating random effcts and obtain model residuals defined as the gradient of the likelihood function. We will latter show you how to implement it through longitudinal, quantitative, and binary trait analysis.
+
