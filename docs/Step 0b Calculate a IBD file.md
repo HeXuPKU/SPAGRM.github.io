@@ -62,7 +62,7 @@ getPairwiseIBD(PlinkFile,
 GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
 PlinkPrefix = tools::file_path_sans_ext(GenoFile)   # remove file extension
 SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-PairwiseIBDFile = system.file("SparseGRM", "PairwiseIBD.txt", package = "GRAB")
+PairwiseIBDFile = system.file("PairwiseIBD", "PairwiseIBD.txt", package = "GRAB")
 getPairwiseIBD(PlinkPrefix, 
                SparseGRMFile = SparseGRMFile,
                PairwiseIBDFile = PairwiseIBDFile,
