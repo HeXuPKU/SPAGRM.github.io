@@ -90,3 +90,12 @@ print(PairwiseIBD)
 # 1550:   f50_10 f50_9 0.253726918 0.4999724 0.24630066
 # 1551: Subj-293 f34_3 0.000000000 0.1040877 0.89591230
 ```
+
+`pa`, `pb`, `pc` are the pairwise IBD-sharing probabilities that two subjects share 2, 1, and 0 alleles in the same locus.
+
+> **Note**  
+> - PairwiseIBDFile is only required for SPA<sub>GRM</sub> analysis. We do not recommend use PairwiseIBDFile for other purposes.
+> - If users use other software (e.g. `PLINK`) to calculate a pairwise IBD probability file, please convert it to the form above. The column names of PairwiseIBDFile should be exactly `ID1`, `ID2`, `pa`, `pb`, `pc`!  
+> - To save computation time, we only calculate and store pairwise IBD probabilities of related subjects.  
+> - The samples in PairwiseIBDFile should be a subset of the samples in SparseGRMFile. An error will occur if PairwiseIBDFile contains samples that is not in the corresponding SparseGRMFile in latter analysis!  
+> - If you restrict SPA<sub>GRM</sub> to analyze unrelated subjects, then SparseGRMFile and PairwiseIBDFile are also required. SparseGRMFile can consist of a table where `ID1` is equal to `ID2`, and Value is 1 in each line. PairwiseIBDFile can consist of an empty table with exactly column names of `ID1`, `ID2`, `pa`, `pb`, `pc`.
