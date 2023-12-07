@@ -19,5 +19,5 @@ To conduct a GWAS analysis containing related subjects, users only need to fit t
 > 1. Prepare the data  
 > - Prepare the phenotype and covariates. Genotype file is required only if you fit a mixed model containing random effects to account for sample relatedness.  
 > - It's recommended to perform quality control (QC) for the phenotype data, especially in the context of longitudinal traits.  
-> - The samples in PairwiseIBDFile should be a subset of the samples in SparseGRMFile. An error will occur if PairwiseIBDFile contains samples that is not in the corresponding SparseGRMFile in latter analysis!  
-> - If you restrict SPA<sub>GRM</sub> to analyze unrelated subjects, then SparseGRMFile and PairwiseIBDFile are also required. SparseGRMFile can consist of a table where `ID1` is equal to `ID2`, and Value is 1 in each line. PairwiseIBDFile can consist of an empty table with exactly column names of `ID1`, `ID2`, `pa`, `pb`, `pc`.
+> - Covariates can include age, gender, SNP-derived top principal components (PCs), and so on.  
+> **2. Choose a suitable statistical model**  
