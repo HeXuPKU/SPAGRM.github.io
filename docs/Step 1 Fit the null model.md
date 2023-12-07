@@ -16,8 +16,8 @@ For SPA<sub>GRM</sub>, it is optional, rather than required, to incorporate a ra
 To conduct a GWAS analysis containing related subjects, users only need to fit the null model only once with/without incorporating random effcts and obtain model residuals defined as the gradient of the likelihood function. We will latter show you how to implement it through longitudinal, quantitative, and binary trait analysis.
 
 > **General pipeline to fit the null model**  
-> 1. Prepare the data  
+> 1. **Prepare the data**  
 > - Prepare the phenotype and covariates. Genotype file is required only if you fit a mixed model containing random effects to account for sample relatedness.  
 > - It's recommended to perform quality control (QC) for the phenotype data, especially in the context of longitudinal traits.  
 > - Covariates can include age, gender, SNP-derived top principal components (PCs), and so on.  
-> **2. Choose a suitable statistical model**  
+> 2. **Choose a suitable statistical model**  
