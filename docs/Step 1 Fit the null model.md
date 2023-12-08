@@ -21,8 +21,8 @@ To conduct a GWAS analysis containing related subjects, users only need to fit t
 > - It's recommended to perform quality control (QC) for the phenotype data, especially in the context of longitudinal traits.  
 > - Covariates can include age, gender, SNP-derived top principal components (PCs), and so on.  
 > 2. **Choose a suitable statistical model**  
-> - For example, we can use linear/logistic regression methods for quantitative/binary trait analysis, we can use the mixed-effects multiple location scale models for longitudinal trait analysis.
-> - Cox PH model can be used for time-to-event trait analysis, and proportional odds logistic model for categorical traits. 
+> - For example, we can use linear/logistic regression methods for quantitative/binary trait analysis; we can use the mixed-effects multiple location scale models for longitudinal trait analysis.
+> - Cox PH model can be used for time-to-event trait analysis, and proportional odds logistic model can be used for categorical traits. 
 > - Users can try other statistical models for complex traits with more complicated structure if interested.
 > 3. **Fit the null model and obtain model residuals**
 > - The score statistic can be derived from the gradient of the likelihood function by fitting the null model. 
