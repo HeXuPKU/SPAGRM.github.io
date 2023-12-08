@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Sparse GRM
+title: Quantitative/binary traits
 nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
-parent: Step 0 Calculate GRM and IBD files
+parent: Step 1 Fit the null model
 has_children: false
 ---
 
