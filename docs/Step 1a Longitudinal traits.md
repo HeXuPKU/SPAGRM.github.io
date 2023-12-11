@@ -84,14 +84,14 @@ LongPheno = CSV.read(PhenoFile, DataFrame)
 ```
 
 ```
-nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
-             @formula(LongPheno ~ 1 + AGE),
-             @formula(LongPheno ~ 1 + AGE + GENDER),
-             :IID,
-             LongPheno,
-             nothing;
-             solver=solver,
-             solver_config = solver_config)
+nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
+                    @formula(LongPheno ~ 1 + AGE),
+                    @formula(LongPheno ~ 1 + AGE + GENDER),
+                    :IID,
+                    LongPheno,
+                    nothing;
+                    solver=solver,
+                    solver_config = solver_config)
 
 # ******************************************************************************
 # This program contains Ipopt, a library for large-scale nonlinear optimization.
