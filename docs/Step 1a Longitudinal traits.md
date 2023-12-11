@@ -127,3 +127,4 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 
 ## Obtain model residuals
 
+Please continue to run the following code in Julia
