@@ -72,7 +72,7 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 ### Display the example data set
 
 ```
-PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongPHENO.txt.
+PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # please copy the filepath of simuLongPHENO.txt.
 LongPheno = CSV.read(PhenoFile, DataFrame)
 
 # 10515×4 DataFrame
