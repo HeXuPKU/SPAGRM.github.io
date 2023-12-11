@@ -41,7 +41,7 @@ print(LongPheno)
 Please run the following code in Julia
 
 ```
-using DataFrames, CSV
+using DataFrames, CSV, DelimitedFiles
 using Ipopt, NLopt, KNITRO
 using WiSER, TrajGWAS
 
@@ -128,3 +128,79 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 ## Obtain model residuals
 
 Please continue to run the following code in Julia
+
+```
+rownames = nullmodel.ids
+
+ResidMatFile_beta = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile_beta.txt"
+
+f1 = open(ResidMatFile_beta, "w")
+writedlm(f1, ["SubjID" "Resid"])
+
+for j in 1:length(nullmodel.data)
+        Resid_beta = sum(nullmodel.data[j].Dinv_r - transpose(nullmodel.data[j].rt_UUt))
+        writedlm(f1, [rownames[j] Resid_beta])
+end
+close(f1)
+
+ResidMat_beta = CSV.read(ResidMatFile_beta, DataFrame)
+
+# 1000×2 DataFrame
+#   Row │ SubjID    Resid      
+#       │ String15  Float64    
+# ──────┼──────────────────────
+#     1 │ Subj-1     0.806224
+#     2 │ Subj-10    0.964086
+#     3 │ Subj-100  -1.00028
+#     4 │ Subj-101   0.156806
+#     5 │ Subj-102  -0.62983
+#     6 │ Subj-103   0.0177747
+#     7 │ Subj-104  -0.0753876
+#     8 │ Subj-105   0.769811
+#   ⋮   │    ⋮          ⋮
+#   994 │ f9_3      -0.132167
+#   995 │ f9_4       0.142017
+#   996 │ f9_5      -1.25016
+#   997 │ f9_6       0.265729
+#   998 │ f9_7      -1.84335
+#   999 │ f9_8      -0.883836
+#  1000 │ f9_9       0.627392
+#              985 rows omitted
+```
+
+```
+rownames = nullmodel.ids
+
+ResidMatFile_tau = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile_tau.txt"
+
+f2 = open(ResidMatFile_tau, "w")
+writedlm(f2, ["SubjID" "Resid"])
+
+for j in 1:length(nullmodel.data)
+        Resid_tau = - sum(nm.data[j].diagDVRV)
+        writedlm(f2, [rownames[j] Resid_tau])
+end
+close(f2)
+
+ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
+
+# 1000×2 DataFrame
+#   Row │ SubjID    Resid      
+#       │ String15  Float64    
+# ──────┼──────────────────────
+#     1 │ Subj-1      6.63029
+#     2 │ Subj-10    10.1477
+#     3 │ Subj-100    6.96377
+#     4 │ Subj-101    2.00466
+#     5 │ Subj-102    0.762797
+#     6 │ Subj-103   -9.68518
+#     7 │ Subj-104    7.93268
+#   ⋮   │    ⋮          ⋮
+#   995 │ f9_4       -9.50279
+#   996 │ f9_5        1.54764
+#   997 │ f9_6       -7.54868
+#   998 │ f9_7        9.64257
+#   999 │ f9_8        1.72898
+#  1000 │ f9_9        0.151542
+#              987 rows omitted
+```
