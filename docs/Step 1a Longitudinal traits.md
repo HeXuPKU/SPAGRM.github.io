@@ -41,7 +41,7 @@ print(LongPheno)
 Please run the following code in Julia
 
 ```
-using DataFrames, CSV, DelimitedFiles, Statistics, LinearAlgebra
+using DataFrames, CSV
 using Ipopt, NLopt, KNITRO
 using WiSER, TrajGWAS
 
@@ -52,7 +52,7 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_MMA, "maxeval"=>4000)
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_LBFGS, "maxeval"=>4000)
 
-PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # replicate the filepath of simuLongPHENO.txt.
+PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongPHENO.txt.
 ```
 
 ```
@@ -80,4 +80,52 @@ LongPheno = CSV.read(PhenoFile, DataFrame)
 #  10514 │ f9_9      49.9013       1    23.1841
 #  10515 │ f9_9      50.2109       1    21.5607
 #                             10498 rows omitted
+```
+
+```
+nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
+             @formula(LongPheno ~ 1 + AGE),
+             @formula(LongPheno ~ 1 + AGE + GENDER),
+             :IID,
+             LongPheno,
+             nothing;
+             solver=solver,
+             solver_config = solver_config)
+
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+run = 1, ‖Δβ‖ = 0.379288, ‖Δτ‖ = 0.076489, ‖ΔL‖ = 0.653537, status = LOCALLY_SOLVED, time(s) = 0.800000
+run = 2, ‖Δβ‖ = 0.015746, ‖Δτ‖ = 0.028828, ‖ΔL‖ = 0.169548, status = LOCALLY_SOLVED, time(s) = 0.086000
+
+Within-subject variance estimation by robust regression (WiSER)
+
+Mean Formula:
+LongPheno ~ 1 + AGE + GENDER
+Random Effects Formula:
+LongPheno ~ 1 + AGE
+Within-Subject Variance Formula:
+LongPheno ~ 1 + AGE + GENDER
+
+Number of individuals/clusters: 1000
+Total observations: 10515
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────
+                   Estimate  Std. Error       Z  Pr(>|Z|)
+─────────────────────────────────────────────────────────
+β1: (Intercept)  37.2366      1.13462     32.82    <1e-99
+β2: AGE          -0.327652    0.022705   -14.43    <1e-46
+β3: GENDER        0.712463    0.094477     7.54    <1e-13
+τ1: (Intercept)  -1.33006     2.07856     -0.64    0.5222
+τ2: AGE           0.0566825   0.042218     1.34    0.1794
+τ3: GENDER        0.132336    0.0642011    2.06    0.0393
+─────────────────────────────────────────────────────────
+Random effects covariance matrix Σγ:
+ "γ1: (Intercept)"  67.3923   -1.32643
+ "γ2: AGE"          -1.32643   0.0266415
+
 ```
