@@ -52,6 +52,6 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_MMA, "maxeval"=>4000)
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_LBFGS, "maxeval"=>4000)
 
-
+PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # replicate the filepath of simuLongPHENO.txt.
 
 ```
