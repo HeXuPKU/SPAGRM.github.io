@@ -158,7 +158,6 @@ ResidMatFile_beta = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile_beta
 
 f1 = open(ResidMatFile_beta, "w")
 writedlm(f1, ["SubjID" "Resid"])
-
 for j in 1:length(nullmodel.data)
         Resid_beta = sum(nullmodel.data[j].Dinv_r - transpose(nullmodel.data[j].rt_UUt))
         writedlm(f1, [rownames[j] Resid_beta])
@@ -199,7 +198,6 @@ ResidMatFile_tau = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile_tau.t
 
 f2 = open(ResidMatFile_tau, "w")
 writedlm(f2, ["SubjID" "Resid"])
-
 for j in 1:length(nullmodel.data)
         Resid_tau = - sum(nm.data[j].diagDVRV)
         writedlm(f2, [rownames[j] Resid_tau])
