@@ -15,6 +15,8 @@ We can use  `WiSER`, a Julia package to fit the null model for longitudinal trai
 
 Please run the following code in R
 
+### Display the example data set
+
 ```
 PhenoFile = system.file("extdata", "simuLongPHENO.txt", package = "GRAB")
 print(PhenoFile)
@@ -40,6 +42,8 @@ print(LongPheno)
 
 Please run the following code in Julia
 
+### Installation and library
+
 ```
 using DataFrames, CSV, DelimitedFiles
 using Ipopt, NLopt, KNITRO
@@ -54,6 +58,8 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 
 PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongPHENO.txt.
 ```
+
+### Display the example data set
 
 ```
 LongPheno = CSV.read(PhenoFile, DataFrame)
@@ -82,6 +88,8 @@ LongPheno = CSV.read(PhenoFile, DataFrame)
 #  10515 │ f9_9      50.2109       1    21.5607
 #                             10498 rows omitted
 ```
+
+### Fit the null model
 
 ```
 nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
@@ -129,6 +137,8 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 
 Please continue to run the following code in Julia
 
+### Obtain model residuals of testing $\beta$<sub>g</sub> = 0 (i.e., the mean profile)
+
 ```
 rownames = nullmodel.ids
 
@@ -167,6 +177,8 @@ ResidMat_beta = CSV.read(ResidMatFile_beta, DataFrame)
 #  1000 │ f9_9       0.627392
 #              985 rows omitted
 ```
+
+### Obtain model residuals of testing $\tau$<sub>g</sub> = 0 (i.e., the within-subject variability)
 
 ```
 rownames = nullmodel.ids
