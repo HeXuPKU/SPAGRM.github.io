@@ -91,7 +91,8 @@ nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
              LongPheno,
              nothing;
              solver=solver,
-             solver_config = solver_config)
+             solver_config = solver_config,
+             run = 5)
 
 # ******************************************************************************
 # This program contains Ipopt, a library for large-scale nonlinear optimization.
