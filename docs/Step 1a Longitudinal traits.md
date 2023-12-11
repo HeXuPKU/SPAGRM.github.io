@@ -123,5 +123,7 @@ nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 # Random effects covariance matrix Σγ:
 #  "γ1: (Intercept)"  67.3923   -1.32643
 #  "γ2: AGE"          -1.32643   0.0266415
-
 ```
+
+## Obtain model residuals
+
