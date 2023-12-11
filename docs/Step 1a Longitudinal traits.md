@@ -95,8 +95,8 @@ nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 
 # ******************************************************************************
 # This program contains Ipopt, a library for large-scale nonlinear optimization.
-#  Ipopt is released as open source code under the Eclipse Public License (EPL).
-#          For more information visit https://github.com/coin-or/Ipopt
+# Ipopt is released as open source code under the Eclipse Public License (EPL).
+# For more information visit https://github.com/coin-or/Ipopt
 # ******************************************************************************
 # run = 1, ‖Δβ‖ = 0.379288, ‖Δτ‖ = 0.076489, ‖ΔL‖ = 0.653537, status = LOCALLY_SOLVED, time(s) = 0.800000
 # run = 2, ‖Δβ‖ = 0.015746, ‖Δτ‖ = 0.028828, ‖ΔL‖ = 0.169548, status = LOCALLY_SOLVED, time(s) = 0.086000
