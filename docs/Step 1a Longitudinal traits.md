@@ -57,6 +57,7 @@ PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongP
 
 ```
 LongPheno = CSV.read(PhenoFile, DataFrame)
+
 # 10515×4 DataFrame
 #    Row │ IID       AGE      GENDER  LongPheno 
 #        │ String15  Float64  Int64   Float64   
@@ -92,40 +93,35 @@ nm = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
              solver=solver,
              solver_config = solver_config)
 
-******************************************************************************
-This program contains Ipopt, a library for large-scale nonlinear optimization.
- Ipopt is released as open source code under the Eclipse Public License (EPL).
-         For more information visit https://github.com/coin-or/Ipopt
-******************************************************************************
-
-run = 1, ‖Δβ‖ = 0.379288, ‖Δτ‖ = 0.076489, ‖ΔL‖ = 0.653537, status = LOCALLY_SOLVED, time(s) = 0.800000
-run = 2, ‖Δβ‖ = 0.015746, ‖Δτ‖ = 0.028828, ‖ΔL‖ = 0.169548, status = LOCALLY_SOLVED, time(s) = 0.086000
-
-Within-subject variance estimation by robust regression (WiSER)
-
-Mean Formula:
-LongPheno ~ 1 + AGE + GENDER
-Random Effects Formula:
-LongPheno ~ 1 + AGE
-Within-Subject Variance Formula:
-LongPheno ~ 1 + AGE + GENDER
-
-Number of individuals/clusters: 1000
-Total observations: 10515
-
-Fixed-effects parameters:
-─────────────────────────────────────────────────────────
-                   Estimate  Std. Error       Z  Pr(>|Z|)
-─────────────────────────────────────────────────────────
-β1: (Intercept)  37.2366      1.13462     32.82    <1e-99
-β2: AGE          -0.327652    0.022705   -14.43    <1e-46
-β3: GENDER        0.712463    0.094477     7.54    <1e-13
-τ1: (Intercept)  -1.33006     2.07856     -0.64    0.5222
-τ2: AGE           0.0566825   0.042218     1.34    0.1794
-τ3: GENDER        0.132336    0.0642011    2.06    0.0393
-─────────────────────────────────────────────────────────
-Random effects covariance matrix Σγ:
- "γ1: (Intercept)"  67.3923   -1.32643
- "γ2: AGE"          -1.32643   0.0266415
+# ******************************************************************************
+# This program contains Ipopt, a library for large-scale nonlinear optimization.
+#  Ipopt is released as open source code under the Eclipse Public License (EPL).
+#          For more information visit https://github.com/coin-or/Ipopt
+# ******************************************************************************
+# run = 1, ‖Δβ‖ = 0.379288, ‖Δτ‖ = 0.076489, ‖ΔL‖ = 0.653537, status = LOCALLY_SOLVED, time(s) = 0.800000
+# run = 2, ‖Δβ‖ = 0.015746, ‖Δτ‖ = 0.028828, ‖ΔL‖ = 0.169548, status = LOCALLY_SOLVED, time(s) = 0.086000
+# Within-subject variance estimation by robust regression (WiSER)
+# Mean Formula:
+# LongPheno ~ 1 + AGE + GENDER
+# Random Effects Formula:
+# LongPheno ~ 1 + AGE
+# Within-Subject Variance Formula:
+# LongPheno ~ 1 + AGE + GENDER
+# Number of individuals/clusters: 1000
+# Total observations: 10515
+# Fixed-effects parameters:
+# ─────────────────────────────────────────────────────────
+#                    Estimate  Std. Error       Z  Pr(>|Z|)
+# ─────────────────────────────────────────────────────────
+# β1: (Intercept)  37.2366      1.13462     32.82    <1e-99
+# β2: AGE          -0.327652    0.022705   -14.43    <1e-46
+# β3: GENDER        0.712463    0.094477     7.54    <1e-13
+# τ1: (Intercept)  -1.33006     2.07856     -0.64    0.5222
+# τ2: AGE           0.0566825   0.042218     1.34    0.1794
+# τ3: GENDER        0.132336    0.0642011    2.06    0.0393
+# ─────────────────────────────────────────────────────────
+# Random effects covariance matrix Σγ:
+#  "γ1: (Intercept)"  67.3923   -1.32643
+#  "γ2: AGE"          -1.32643   0.0266415
 
 ```
