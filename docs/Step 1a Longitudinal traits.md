@@ -53,5 +53,31 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_LBFGS, "maxeval"=>4000)
 
 PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # replicate the filepath of simuLongPHENO.txt.
+```
 
+```
+LongPheno = CSV.read(PhenoFile, DataFrame)
+# 10515×4 DataFrame
+#    Row │ IID       AGE      GENDER  LongPheno 
+#        │ String15  Float64  Int64   Float64   
+# ───────┼──────────────────────────────────────
+#      1 │ Subj-1    49.7667       0    21.184  
+#      2 │ Subj-1    46.9762       0    22.6392 
+#      3 │ Subj-1    48.6039       0    22.999  
+#      4 │ Subj-1    48.4704       0    22.8883 
+#      5 │ Subj-1    50.5121       0    23.1773 
+#      6 │ Subj-1    47.5477       0    22.7587 
+#      7 │ Subj-1    50.2266       0    21.5066 
+#      8 │ Subj-1    50.2574       0    22.9993 
+#      9 │ Subj-1    49.1261       0    23.6902 
+#    ⋮   │    ⋮         ⋮       ⋮         ⋮     
+#  10508 │ f9_8      48.8736       1    18.8061 
+#  10509 │ f9_8      50.4701       1    22.4624 
+#  10510 │ f9_9      51.0203       1    24.1638 
+#  10511 │ f9_9      50.3452       1    19.047
+#  10512 │ f9_9      50.4438       1    24.2056
+#  10513 │ f9_9      51.5276       1    24.8624
+#  10514 │ f9_9      49.9013       1    23.1841
+#  10515 │ f9_9      50.2109       1    21.5607
+#                             10498 rows omitted
 ```
