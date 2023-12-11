@@ -67,13 +67,12 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 # solver = KNITRO.Optimizer(); solver_config = Dict("outlev"=>3) # (Knitro is commercial software)
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_MMA, "maxeval"=>4000)
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_LBFGS, "maxeval"=>4000)
-
-PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongPHENO.txt.
 ```
 
 ### Display the example data set
 
 ```
+PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # copy the filepath of simuLongPHENO.txt.
 LongPheno = CSV.read(PhenoFile, DataFrame)
 
 # 10515×4 DataFrame
