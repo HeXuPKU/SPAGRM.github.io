@@ -85,8 +85,8 @@ docker run -v /path/to/your/sparseGRM/:/sparseGRMDir \
   -v /path/to/your/geno/:/genoDir \
   -v /path/to/your/output/:/outputDir \
   wzhou88/saige:1.1.9 step1_fitNULLGLMM.R \
-  --sparseGRMFile=/sparseGRMDir/SparseGRMFile.txt \
-  --sparseGRMSampleIDFile=/sparseGRMDir/SparseGRMSampleIDFile.txt \
+  --sparseGRMFile=/sparseGRMDir/SAIGE_SparseGRM.txt \
+  --sparseGRMSampleIDFile=/sparseGRMDir/SAIGE_SparseGRMSampleID.txt \
   --useSparseGRMtoFitNULL=TRUE \
   --outputPrefix=/outputDir/SAIGE_step1 \
   --plinkFile=/genoDir/simuPLINK \
