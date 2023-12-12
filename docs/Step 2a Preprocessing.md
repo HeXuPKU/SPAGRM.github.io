@@ -7,6 +7,18 @@ parent: Step 2 Conduct genome-wide association studies
 has_children: false
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 # Pre-calculation of the joint distribution of genotypes
 
 We can use `SPAGRM.NullModel` function in `GRAB` package to pre-calculate the joint distribution of genotypes. This function requires products of step 0 and 1.
@@ -37,3 +49,11 @@ SPAGRM.NullModel(ResidMatFile,
                                 MAF_interval = c(0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5)))
 ```
 
+- ResidMatFile: required. A path to the ResidMat file.
+- SparseGRMFile: required. A path to the sparse GRM file.
+- PairwiseIBDFile: required. A path to the pairwise IBD file.
+- control: optional. `control` is to specify a list of parameters for controlling the association testing process.
+  - MaxQuantile/MinQuantile/OutlierRatio: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; Interval $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ divides model residuals into non-outliers and outliers.
+    - MaxQuantile: optional. Upper quantile, ranging from 0 to 1 (default=0.75)
+    - MinQuantile: optional. Lower quantile, ranging from 0 to 1 (default=0.25)
+    - OutlierRatio: optional. Multiples of IQR, more than 0 (default=1.5)
