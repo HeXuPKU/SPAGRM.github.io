@@ -69,7 +69,7 @@ print(ResidMat)
 #  999:     f9_8  0.8422290
 # 1000:     f9_9 -0.8052310
 
-ResidMatFile = system.file("extdata", "ResidMatFile.txt", package = "GRAB")
+ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 ```
 
@@ -125,7 +125,7 @@ print(ResidMat)
 #  999: Subj-499  0.2505687
 # 1000: Subj-500  0.2809179
 
-ResidMatFile = system.file("extdata", "ResidMatFile.txt", package = "GRAB")
+ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 ```
 
