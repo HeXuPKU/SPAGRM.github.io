@@ -24,3 +24,6 @@ ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 ```
 
 ## Run `SPAGRM.NullModel` to pre-calculate genotype distributions
+
+
+
