@@ -9,7 +9,7 @@ has_children: false
 
 # Quantitative traits
 
-We can use a linear regression to fit the null model for quantitative traits. Or we can use a linear mixed model to fit the null model and obtain residuals.
+We can use a linear regression to fit the null model for quantitative traits. That is ignoring random effects in mixed models. Or we can use a linear mixed model to fit the null model and obtain residuals.
 
 ## Linear regression
 
@@ -48,6 +48,33 @@ print(PhenoData)
 # 1000:            0 0.08657261         0
 ```
 
+### Fit the null model and obtain model residuals
+
+```
+nullmodel = lm(QuantPheno ~ AGE + GENDER, data = PhenoData)
+
+ResidMat = data.frame(SubjID = PhenoData$IID,
+                      Resid = nullmodel$residuals)
+print(ResidMat)
+#         SubjID      Resid
+#    1:   Subj-1  0.7302493
+#    2:  Subj-10 -2.7149915
+#    3: Subj-100 -1.8086329
+#    4: Subj-101 -3.6774972
+#    5: Subj-102 -2.9905191
+#   ---                    
+#  996:     f9_5 -0.2783859
+#  997:     f9_6 -1.6157763
+#  998:     f9_7 -1.6084382
+#  999:     f9_8  0.8422290
+# 1000:     f9_9 -0.8052310
+
+ResidMatFile = system.file("extdata", "ResidMatFile.txt", package = "GRAB")
+data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
+```
+
+
+
 
 ## Linear mixed model
 
@@ -58,7 +85,7 @@ print(PhenoData)
 
 # Binary traits
 
-We can use a logistic regression to fit the null model for binary traits. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
+We can use a logistic regression to fit the null model for binary traits. That is ignoring random effects in mixed models. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
 
 ## Logistic regression
 
