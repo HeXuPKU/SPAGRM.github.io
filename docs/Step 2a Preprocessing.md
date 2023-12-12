@@ -41,17 +41,17 @@ SPAGRM.NullModel(ResidMatFile,
                                 MAF_interval = c(0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5)))
 ```
 
-- ResidMatFile: required. A path to the ResidMat file.
-- SparseGRMFile: required. A path to the sparse GRM file.
-- PairwiseIBDFile: required. A path to the pairwise IBD file.
-- control: optional. `control` is to specify a list of parameters for controlling the association testing process.
-  - MaxQuantile/MinQuantile/OutlierRatio: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; The interval of outlier detection is defined as $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ which divides model residuals into non-outliers and outliers.
-    - MaxQuantile: optional. Upper quantile, ranging from 0 to 1. (default=0.75)
-    - MinQuantile: optional. Lower quantile, ranging from 0 to 1. (default=0.25)
-    - OutlierRatio: optional. Multiples of IQR, more than 0. (default=1.5)
-  - ControlOutlier: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. (default=TRUE)
-  - MaxNuminFam： optional. Control the family size $\leq$ `MaxNuminFam` to remain computational efficiency. (default=5)
-  - MAF_interval: optional. we divide the minor allele frequency (MAF) region into several intervals and pre-calculate joint distributions of genotypes at each MAF cutoff.
+- `ResidMatFile`: required. A path to the ResidMat file.
+- `SparseGRMFile`: required. A path to the sparse GRM file.
+- `PairwiseIBDFile`: required. A path to the pairwise IBD file.
+- `control`: optional. `control` is to specify a list of parameters for controlling the association testing process.
+  - `MaxQuantile`/`MinQuantile`/`OutlierRatio`: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; The interval of outlier detection is defined as $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ which divides model residuals into non-outliers and outliers.
+    - `MaxQuantile`: optional. Upper quantile, ranging from 0 to 1. (default=0.75)
+    - `MinQuantile`: optional. Lower quantile, ranging from 0 to 1. (default=0.25)
+    - `OutlierRatio`: optional. Multiples of IQR, more than 0. (default=1.5)
+  - `ControlOutlier`: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. (default=TRUE)
+  - `MaxNuminFam`： optional. Control the family size $\leq$ `MaxNuminFam` to remain computational efficiency. (default=5)
+  - `MAF_interval`: optional. we divide the minor allele frequency (MAF) region into several intervals and pre-calculate joint distributions of genotypes at each MAF cutoff.
 
 **Example:**
 
