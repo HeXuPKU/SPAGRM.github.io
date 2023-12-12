@@ -23,4 +23,4 @@ PairwiseIBDFile = system.file("PairwiseIBD", "PairwiseIBD.txt", package = "GRAB"
 ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 ```
 
-## Run `SPAGRM.NullModel` to pre-calculate joint distributions of genotypes
+## Run `SPAGRM.NullModel` to pre-calculate genotype distributions
