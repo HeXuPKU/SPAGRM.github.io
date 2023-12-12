@@ -20,6 +20,6 @@ SPA<sub>GRM</sub> is a two-step method to control for sample relatedness in larg
 
 - To avoid redundant computations in step 2, SPAGRM uses the genetic relationship matrix (GRM) and identity by descent (IBD) probabilities to approximate the discrete joint distribution of genotype vectors in advance (illustrated as step 0). 
 
-See `A scalable, accurate, and universal analysis framework to control for sample relatedness in large-scale genome-wide association studies and its application to 79 longitudinal traits in UK Biobank (to be updated)` for more details about workflow of SPA<sub>GRM</sub>.
+See `A scalable, accurate, and universal analysis framework to control for sample relatedness in large-scale genome-wide association studies and its application to 79 longitudinal traits in UK Biobank (to be updated)` for more details about the workflow of SPA<sub>GRM</sub>.
 
 ![plot](https://raw.githubusercontent.com/Fantasy-XuHe/SPAGRM.github.io/main/docs/assets/images/workfolw%20of%20SPAGRM.png)
