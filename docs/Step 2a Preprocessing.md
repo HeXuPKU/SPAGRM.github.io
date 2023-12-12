@@ -25,5 +25,15 @@ ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 
 ## Run `SPAGRM.NullModel` to pre-calculate genotype distributions
 
-
+```
+SPAGRM.NullModel(ResidMatFile,
+                 SparseGRMFile,
+                 PairwiseIBDFile，
+                 control = list(MaxQuantile = 0.75,
+                                MinQuantile = 0.25,
+                                OutlierRatio = 1.5,
+                                ControlOutlier = TRUE,
+                                MaxNuminFam = 5,
+                                MAF_interval = c(0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5)))
+```
 
