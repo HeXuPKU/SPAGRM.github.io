@@ -59,3 +59,4 @@ SPAGRM.NullModel(ResidMatFile,
     - OutlierRatio: optional. Multiples of IQR, more than 0. (default=1.5)
   - ControlOutlier: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. XXXXXXXXXX (default=TRUE)
   - MaxNuminFam： optional. Control the family size $\leq$ `MaxNuminFam` to remain computational efficiency. (default=5)
+  - MAF_interval: optional. we divide the minor allele frequency (MAF) region into several intervals and pre-calculate joint distributions of genotypes at each MAF cutoff.
