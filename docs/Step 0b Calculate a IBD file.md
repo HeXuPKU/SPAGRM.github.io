@@ -94,7 +94,7 @@ print(PairwiseIBD)
 `pa`, `pb`, `pc` are the pairwise IBD-sharing probabilities that two subjects share 2, 1, and 0 alleles in the same locus.
 
 > **Note**  
-> - PairwiseIBDFile is only required for SPA<sub>GRM</sub> analysis. We do not recommend use PairwiseIBDFile for other purposes.
+> - PairwiseIBDFile is only required for SPA<sub>GRM</sub> analysis. We do not recommend using PairwiseIBDFile for other purposes.
 > - If users use other software (e.g. `PLINK`) to calculate a pairwise IBD probability file, please convert it to the form above. The column names of PairwiseIBDFile should be exactly `ID1`, `ID2`, `pa`, `pb`, `pc`!  
 > - To save computation time, we only calculate and store pairwise IBD probabilities of related subjects.  
 > - The samples in PairwiseIBDFile should be a subset of the samples in SparseGRMFile. An error will occur if PairwiseIBDFile contains samples that is not in the corresponding SparseGRMFile in latter analysis!  
