@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Pre-estimate joint distributions of genotypes
+title: (a) Pre-estimate joint distributions of genotypes
 nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 2 Conduct genome-wide association studies
