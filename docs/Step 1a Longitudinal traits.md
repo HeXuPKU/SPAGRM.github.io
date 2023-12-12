@@ -225,3 +225,4 @@ ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
 > **Note**  
 > - ResidMatFile has the same format regardless of testing $\beta$<sub>g</sub> or $\tau$<sub>g</sub>.
 > - The column name of ResidMatFile must be exactly `SubjID` in the first column and `Resid` in the second column.
+> - Each subject should match its corresponding residual.

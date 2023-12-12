@@ -132,6 +132,7 @@ data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names =
 > **Note**  
 > - ResidMatFile has the same format regardless of phenotypes.
 > - The column name of ResidMatFile must be exactly `SubjID` in the first column and `Resid` in the second column.
+> - Each subject should match its corresponding residual.
 
 ### Tips to convert our SparseGRMFile to SAIGE's required format
 
@@ -168,4 +169,3 @@ data.table::fwrite(SAIGE.SparseGRM, file = "/path/to/your/sparseGRM/SAIGE_Sparse
 data.table::fwrite(data.table::data.table(uniqID), file = "/path/to/your/sparseGRM/SAIGE_SparseGRMSampleID.txt",
                    row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
 ```
-
