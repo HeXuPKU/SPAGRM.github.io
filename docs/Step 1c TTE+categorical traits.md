@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Time-to-event/ordinal categorical traits
+title: Binary traits
 nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
