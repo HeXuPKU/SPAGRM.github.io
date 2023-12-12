@@ -9,4 +9,26 @@ has_children: false
 
 # Quantitative traits
 
-## Prepare PLINK binary files
+We can use a linear regression to fit the null model for quantitative traits. Or we can use a linear mixed model to fit the null model and obtain residuals.
+
+## Linear regression
+
+
+
+
+
+## Linear mixed model
+
+
+
+
+
+
+# Binary traits
+
+We can use a logistic regression to fit the null model for binary traits. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
+
+## Logistic regression
+
+
+## Generalized linear mixed model
