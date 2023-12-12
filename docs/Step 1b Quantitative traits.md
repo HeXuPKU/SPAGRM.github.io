@@ -100,8 +100,32 @@ docker run -v /path/to/your/sparseGRM/:/sparseGRMDir \
   --IsOverwriteVarianceRatioFile=TRUE
 ```
 
+### Load step 1 product and obtain model residuals
 
+Please run the following code in R
 
+```
+load("/path/to/your/output/SAIGE_step1.rda") # please verify your filepath.
+
+ResidMat = data.frame(SubjID = modglmm$sampleID,
+                      Resid = modglmm$residuals)
+print(ResidMat)
+#         SubjID      Resid
+#    1:     f1_1 -1.1239756
+#    2:     f1_2  0.7595350
+#    3:     f1_3  0.6276040
+#    4:     f1_4  1.2506376
+#    5:     f1_5 -0.3869877
+#   ---
+#  996: Subj-496 -0.7629248
+#  997: Subj-497  0.2142096
+#  998: Subj-498 -0.1806843
+#  999: Subj-499  0.2505687
+# 1000: Subj-500  0.2809179
+
+ResidMatFile = system.file("extdata", "ResidMatFile.txt", package = "GRAB")
+data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
+```
 
 
 
