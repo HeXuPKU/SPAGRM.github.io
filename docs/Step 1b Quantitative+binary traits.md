@@ -80,24 +80,24 @@ In practice， we use SAIGE to fit the null linear mixed model. Here is an examp
 ### Fit the null mixed model
 
 ```
-docker run -v /gdata01/user/xuhe/SPA-GRM/real_data-2023-08-29/SAIGE_sparseGRM/:/sparseGRMDir \
-  -v /gdata01/user/xuhe/SPA-GRM/real_data-2023-08-29/clean_data/:/phenoDir \
-  -v /gdata01/user/xuhe/SPA-GRM/real_data-2023-08-29/ukb22828_imp/:/genoDir \
-  -v /gdata01/user/xuhe/SPA-GRM/real_data-2023-08-29/SAIGE_step1/:/outputDir \
+docker run -v /path/to/your/sparseGRM/:/sparseGRMDir \
+  -v /path/to/your/pheno/:/phenoDir \
+  -v /path/to/your/geno/:/genoDir \
+  -v /path/to/your/output/:/outputDir \
   wzhou88/saige:1.1.9 step1_fitNULLGLMM.R \
-  --sparseGRMFile=/sparseGRMDir/SAIGE_SparseGRM.txt \
-  --sparseGRMSampleIDFile=/sparseGRMDir/SAIGE_SparseGRM_SampleIDs.txt \
+  --sparseGRMFile=/sparseGRMDir/SparseGRMFile.txt \
+  --sparseGRMSampleIDFile=/sparseGRMDir/SparseGRMSampleIDFile.txt \
   --useSparseGRMtoFitNULL=TRUE \
-  --outputPrefix=/outputDir/ALT_linear \
-  --plinkFile=/genoDir/random1000 \
-  --phenoFile=/phenoDir/ALT_linear.txt \
-  --phenoCol=value \
+  --outputPrefix=/outputDir/SAIGE_step1 \
+  --plinkFile=/genoDir/simuPLINK \
+  --phenoFile=/phenoDir/simuPHENO.txt \
   --traitType=quantitative \
-  --covarColList=sex_genetic,age,PC1,PC2,PC3,PC4,PC5,PC6,PC7,PC8,PC9,PC10 \
-  --sampleIDColinphenoFile=FID \
+  --invNormalize=TRUE \
+  --phenoCol=QuantPheno \
+  --covarColList=AGE,GENDER \
+  --sampleIDColinphenoFile=IID \
   --isCateVarianceRatio=FALSE \
   --IsOverwriteVarianceRatioFile=TRUE
-
 ```
 
 
