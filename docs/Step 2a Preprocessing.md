@@ -53,7 +53,8 @@ SPAGRM.NullModel(ResidMatFile,
 - SparseGRMFile: required. A path to the sparse GRM file.
 - PairwiseIBDFile: required. A path to the pairwise IBD file.
 - control: optional. `control` is to specify a list of parameters for controlling the association testing process.
-  - MaxQuantile/MinQuantile/OutlierRatio: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; Interval $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ divides model residuals into non-outliers and outliers.
+  - MaxQuantile/MinQuantile/OutlierRatio: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ divides model residuals into non-outliers and outliers.
     - MaxQuantile: optional. Upper quantile, ranging from 0 to 1 (default=0.75)
     - MinQuantile: optional. Lower quantile, ranging from 0 to 1 (default=0.25)
     - OutlierRatio: optional. Multiples of IQR, more than 0 (default=1.5)
+  - ControlOutlier: optional. 
