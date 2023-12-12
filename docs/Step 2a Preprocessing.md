@@ -54,7 +54,8 @@ SPAGRM.NullModel(ResidMatFile,
 - PairwiseIBDFile: required. A path to the pairwise IBD file.
 - control: optional. `control` is to specify a list of parameters for controlling the association testing process.
   - MaxQuantile/MinQuantile/OutlierRatio: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ divides model residuals into non-outliers and outliers.
-    - MaxQuantile: optional. Upper quantile, ranging from 0 to 1 (default=0.75)
-    - MinQuantile: optional. Lower quantile, ranging from 0 to 1 (default=0.25)
-    - OutlierRatio: optional. Multiples of IQR, more than 0 (default=1.5)
-  - ControlOutlier: optional. 
+    - MaxQuantile: optional. Upper quantile, ranging from 0 to 1. (default=0.75)
+    - MinQuantile: optional. Lower quantile, ranging from 0 to 1. (default=0.25)
+    - OutlierRatio: optional. Multiples of IQR, more than 0. (default=1.5)
+  - ControlOutlier: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. XXXXXXXXXX (default=TRUE)
+  - MaxNuminFam： optional. Control the family size $\leq$ `MaxNuminFam` to remain computational efficiency. (default=5)
