@@ -22,7 +22,6 @@ library(GRAB)
 PhenoFile = system.file("extdata", "simuPHENO.txt", package = "GRAB")
 PhenoData = data.table::fread(PhenoFile)
 print(PhenoData)
-
 #            IID      AGE GENDER      eta       bVec BinaryPheno  QuantPheno 
 #    1:   Subj-1 59.61118      0 29.59961 -0.2059781           0  0.27866626
 #    2:  Subj-10 61.31636      0 29.32101 -1.3371678           0 -2.29732890
@@ -47,9 +46,6 @@ print(PhenoData)
 #  998:            2 0.04456741         0
 #  999:            0 0.07052257         0
 # 1000:            0 0.08657261         0
-
-
-
 ```
 
 

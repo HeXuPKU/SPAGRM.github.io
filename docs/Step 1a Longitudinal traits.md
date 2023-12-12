@@ -74,7 +74,6 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 ```
 PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # please copy the filepath of simuLongPHENO.txt.
 LongPheno = CSV.read(PhenoFile, DataFrame)
-
 # 10515×4 DataFrame
 #    Row │ IID       AGE      GENDER  LongPheno 
 #        │ String15  Float64  Int64   Float64   
@@ -111,7 +110,6 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
                     nothing;
                     solver=solver,
                     solver_config = solver_config)
-
 # ******************************************************************************
 # This program contains Ipopt, a library for large-scale nonlinear optimization.
 # Ipopt is released as open source code under the Eclipse Public License (EPL).
@@ -164,7 +162,6 @@ end
 close(f1)
 
 ResidMat_beta = CSV.read(ResidMatFile_beta, DataFrame)
-
 # 1000×2 DataFrame
 #   Row │ SubjID    Resid      
 #       │ String15  Float64    
@@ -204,7 +201,6 @@ end
 close(f2)
 
 ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
-
 # 1000×2 DataFrame
 #   Row │ SubjID    Resid      
 #       │ String15  Float64    
