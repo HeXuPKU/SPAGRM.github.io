@@ -40,21 +40,21 @@ getPairwiseIBD(PlinkFile,
                rm.tempFile = FALSE)
 ```
 
-- PlinkFile: required. A path to PLINK files (without file extensions of bed/bim/fam). It suggested be the same as used in `getSparseGRM` function.
+- `PlinkFile`: required. A path to PLINK files (without file extensions of bed/bim/fam). It suggested be the same as used in `getSparseGRM` function.
 
-- SparseGRMFile: required. A file path to the sparse GRM file.
+- `SparseGRMFile`: required. A file path to the sparse GRM file.
 
-- PairwiseIBDFile: required. A file path to store pairwise IBD-sharing probabilities.
+- `PairwiseIBDFile`: required. A file path to store pairwise IBD-sharing probabilities.
 
-- frqFile: A path to the frq file corresponding to PLINK binary files (default=NULL, means the same prefix as PLINK binary files)
+- `frqFile`: A path to the frq file corresponding to PLINK binary files (default=NULL, means the same prefix as PLINK binary files)
 
-- tempDir: optional. A path to store temp files generated in `getPairwiseIBD`. Default is system.file("PairwiseIBD", "temp", package = "GRAB").
+- `tempDir`: optional. A path to store temp files generated in `getPairwiseIBD`. Default is system.file("PairwiseIBD", "temp", package = "GRAB").
 
-- maxSampleNums: optional. Maximal number of samples in each run to calculate their pairwise IBD-sharing probabilities. If number of genetic variants > 100K, `maxSampleNums` should < 2,500 to save momory usage. (default=2500)
+- `maxSampleNums`: optional. Maximal number of samples in each run to calculate their pairwise IBD-sharing probabilities. If number of genetic variants > 100K, `maxSampleNums` should < 2,500 to save momory usage. (default=2500)
 
-- minMafIBD: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make pairwise IBD-sharing probabilities. (default=0.01)
+- `minMafIBD`: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make pairwise IBD-sharing probabilities. (default=0.01)
 
-- rm.tempFiles: optional. A logical value indicating if the temp files generated in `getPairwiseIBD` will be deleted. (default=FALSE)
+- `rm.tempFiles`: optional. A logical value indicating if the temp files generated in `getPairwiseIBD` will be deleted. (default=FALSE)
 
 **Example:**
 
