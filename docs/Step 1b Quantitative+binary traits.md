@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Quantitative/binary traits
+title: Quantitativetraits
 nav_order: 2
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
@@ -104,15 +104,6 @@ docker run -v /path/to/your/sparseGRM/:/sparseGRMDir \
 
 
 
-# Binary traits
 
-We can use a logistic regression to fit the null model for binary traits. That is ignoring random effects in mixed models. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
-
-## Logistic regression
-
-
-## Generalized linear mixed model
-
-In practice， we use SAIGE to fit the null generalized linear mixed model. Here is an example code showing how to use docker to run SAIGE.
 
 
