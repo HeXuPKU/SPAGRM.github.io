@@ -34,6 +34,8 @@ GRAB.Marker(objNull,
             control = NULL)
 ```
 
+**Command**
+
 - `objNull`: required. The output object of function `SPAGRM.NullModel` for SPA<sub>GRM</sub> method. For other methods (e.g. POLMM), it can be the output object of function `GRAB.NullModel`.
 - `GenoFile`: required. A character of genotype file. Currently, two types of genotype formats are supported: PLINK and BGEN. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
 - `GenoFileIndex`: optional. Additional index files corresponding to the GenoFile. If _NULL_ (by default), the prefix is the same as `GenoFile`. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
@@ -54,3 +56,21 @@ GRAB.Marker(objNull,
   - `RangesToIncludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
   - `RangesToExcludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
   - `AlleleOrder`: for PLINK files, the default `AlleleOrder` = "alt-first"; for BGEN files, the default `AlleleOrder` = "ref-first". Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+
+**Value**
+
+The analysis results are written in a file of `OutputFile`, which includes the following columns.
+
+- `Marker`: marker IDs extracted from `GenoFile` and `GenoFileIndex`.
+- `Info`: marker Information of "CHR:POS:REF:ALT". The order of REF/ALT depends on `AlleleOrder`: "ref-first" or "alt-first".
+- `AltFreq`: alternative allele frequency (before genotype imputation, might be > 0.5). If the AltFreq of most markers are > 0.5, you should consider resetting `AlleleOrder`.
+- `AltCounts`: alternative allele counts (before genotype imputation).
+- `MissingRate`: missing rate for each marker.
+- `zScore`: standardized score statistics, usually follows a standard normal distribution.
+- `Pvalue`: association test p-value for each marker.
+- `hwepval`: hardy weinberg equilibrium p-value for each marker.
+
+**Example**
+
+
+
