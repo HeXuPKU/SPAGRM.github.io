@@ -93,7 +93,6 @@ GRAB.Marker(objNull = obj.SPAGRM,
 # preview the results
 results = data.table::fread(OutputFile)
 print(results)
-
 #           Marker        Info    AltFreq AltCounts MissingRate      zScore    Pvalue   hwepval
 #     1:     SNP_1     1:1:G:A 0.39132706       749       0.043  0.21156824 0.8324439 0.3054106
 #     2:     SNP_2     1:2:G:A 0.45886076       870       0.052  1.29168799 0.1964652 0.5650432
