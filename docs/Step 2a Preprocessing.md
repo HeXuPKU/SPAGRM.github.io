@@ -92,5 +92,5 @@ obj.SPAGRM = SPAGRM.NullModel(ResidMatFile = ResidMatFile,
 ```
 # Save the objSPAGRM product
 objSPAGRMFile = system.file("results", "objSPAGRMFile.RData", package = "GRAB")
-save(objSPAGRM, file = objSPAGRMFile)
+save(obj.SPAGRM, file = objSPAGRMFile)
 ```
