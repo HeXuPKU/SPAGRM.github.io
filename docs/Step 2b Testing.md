@@ -109,4 +109,4 @@ print(results)
 ```
 
 > **Note**  
-> - Users can also see [GRAB documentation](https://wenjianbi.github.io/grab.github.io/docs/overview.html) for more details about `GRAB.marker` function.
+> - You can also see [GRAB documentation](https://wenjianbi.github.io/grab.github.io/docs/overview.html) for more details about `GRAB.marker` function.
