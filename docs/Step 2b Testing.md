@@ -40,4 +40,6 @@ GRAB.Marker(objNull,
 - `OutputFile`: required. A character of output file to save the analysis results.
 - `OutputFileIndex`: optional. A character of output index file to record the end point.  If _NULL_ (by default), OutputFileIndex = paste0(OutputFile, ".index").
 - `control`: optional. A list of parameters for controlling function `GRAB.Marker`.
-  - `SPA_Cutoff`: a numeric value (default=2). If absolute value of observed score statistic $\geq$ SPA_Cutoff $\times$ its estimated standard error.
+  - `SPA_Cutoff`: a numeric value (default=2). If absolute value of observed score statistic $\geq$ SPA_Cutoff $\times$ its estimated standard error, saddlepoint approximation is applied; otherwise normal distribution approximation is applied.
+  - `zeta`: a numeric value (default=0). Initial value of saddle point. We use Newton iteration to find the root. This will converge faster if initial value is closer to the root.
+  - `tol`: a numeric value (default=1e-5). It decide the accuracy of Newton's iteration. Generally, tol=1e-4 is OK for a wide range of phenotypes. If model residuals are extremely unbalanced (e.g. when testing within-subject variability for longitudinal traits), `tol` should be 1e-5 or smaller.
