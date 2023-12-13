@@ -7,6 +7,18 @@ parent: Step 2 Conduct genome-wide association studies
 has_children: false
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 # Conduct genome-wide association studies
 
 We can use `GRAB.marker` function in GRAB package to conduct marker-level genome-wide association studies. `GRAB.marker` share many parameters in [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html). Click here for more details about these parameters.
@@ -28,4 +40,4 @@ GRAB.Marker(objNull,
 - `OutputFile`: required. A character of output file to save the analysis results.
 - `OutputFileIndex`: optional. A character of output index file to record the end point.  If _NULL_ (by default), OutputFileIndex = paste0(OutputFile, ".index").
 - `control`: optional. A list of parameters for controlling function `GRAB.Marker`.
-  - `SPA_Cutoff`: a numeric value (default=2). 
+  - `SPA_Cutoff`: a numeric value (default=2). If absolute value of observed score statistic $\geq$ SPA_Cutoff $\times$ its estimated standard error.

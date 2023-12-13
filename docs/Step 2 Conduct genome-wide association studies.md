@@ -23,7 +23,7 @@ To remain scalable for large-scale biobank-based GWAS, SPA<sub>GRM</sub> employs
 
 - **Fast version of saddlepoint approximation**
   - We adopt the basic idea of fastSPA to employ a partially normal distribution approximation. We use the interquartile range (IQR) to divide model residuals into outliers and non-outliers. For outliers, family size reduction is applied and more precise estimation of joint genotype distributions is required; for non-outlier, normal distribution approximation is applied.
-  - A hybrid strategy of normal distribution approximation and saddlepoint approximation (SPA) is also applied in SPA<sub>GRM</sub>. If observed score statistic is far away from its estimated standard error, SPA is applied to calibrate the p value; otherwise, the normal distribution approximation is used. The default cutoff is 2 in SPA<sub>GRM</sub>.
+  - A hybrid strategy of normal distribution approximation and saddlepoint approximation (SPA) is also applied in SPA<sub>GRM</sub>. If absolute value of observed score statistic is far away from its estimated standard error, SPA is applied to calibrate the p value; otherwise, the normal distribution approximation is used. The default cutoff is 2 in SPA<sub>GRM</sub>.
 
 - **Variance ratio adjustment for SPA**
   - Pre-calculation of the joint distribution of genotypes and family size reduction strategies may slightly compromise the accuracy of SPA. Thus, we apply a variance ratio adjustment for SPA to ensure the variance from SPA is accurate.
