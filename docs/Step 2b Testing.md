@@ -28,3 +28,4 @@ GRAB.Marker(objNull,
 - `OutputFile`: required. A character of output file to save the analysis results.
 - `OutputFileIndex`: optional. A character of output index file to record the end point.  If _NULL_ (by default), OutputFileIndex = paste0(OutputFile, ".index").
 - `control`: optional. A list of parameters for controlling function `GRAB.Marker`.
+  - `SPA_Cutoff`: a numeric value (default=2). 
