@@ -7,4 +7,10 @@ parent: Step 2 Conduct genome-wide association studies
 has_children: false
 ---
 
+# Conduct genome-wide association studies
+
+We can use `GRAB.marker` function in GRAB package to conduct marker-level genome-wide association studies. `GRAB.marker` share many parameters in [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html). Click here for more details about these parameters.
+
+## Run `GRAB.marker` to conduct genome-wide association studies
+
 
