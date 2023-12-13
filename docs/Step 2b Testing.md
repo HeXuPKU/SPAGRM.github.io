@@ -108,3 +108,5 @@ print(results)
 # 10000: SNP_10000 1:10000:G:A 0.14014752       266       0.051  1.12354821 0.2612047 0.2401637
 ```
 
+> **Note**  
+> - Users can also see [GRAB documentation](https://wenjianbi.github.io/grab.github.io/docs/overview.html) for more details about `GRAB.marker` function.
