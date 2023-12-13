@@ -94,3 +94,7 @@ obj.SPAGRM = SPAGRM.NullModel(ResidMatFile = ResidMatFile,
 objSPAGRMFile = system.file("results", "objSPAGRMFile.RData", package = "GRAB")
 save(obj.SPAGRM, file = objSPAGRMFile)
 ```
+
+> **Note**  
+> - If `ControlOutlier` is set TRUE, we will automatically alter `OutlierRatio` to make sure that the proportion of outliers $\leq$ 10%. But we suggest setting `ControlOutlier` to FALSE when analyzing ultra-rare variants and/or phenotypic distribution is extremely unbalanced.
+> - `MaxNuminFam` is set to 5 by default, in order to improve computing efficiency while maintaining accuracy. Our real data analysis indicates that increasing MaxNuminFam has **no** impact on the association results, but the run time will increase exponentially.
