@@ -64,10 +64,10 @@ ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
 ```
 
 ```
-objSPAGRM = SPAGRM.NullModel(ResidMatFile = ResidMatFile, 
-                             SparseGRMFile = SparseGRMFile, 
-                             PairwiseIBDFile = PairwiseIBDFile,
-                             control = list(ControlOutlier = FALSE))
+obj.SPAGRM = SPAGRM.NullModel(ResidMatFile = ResidMatFile, 
+                              SparseGRMFile = SparseGRMFile, 
+                              PairwiseIBDFile = PairwiseIBDFile,
+                              control = list(ControlOutlier = FALSE))
 
 # cutoffVec:	 -1.930831 1.920325 
 # Outliers information is as below
