@@ -72,5 +72,39 @@ The analysis results are written in a file of `OutputFile`, which includes the f
 
 **Example**
 
+```
+# load in an R object of "obj.SPAGRM"
+objSPAGRMFile = system.file("results", "objSPAGRMFile.RData", package = "GRAB")  
+load(objSPAGRMFile)
+```
 
+```
+# run the GRAB.Marker function
+GenoFile = system.file("extdata", "simuPLINK.bed", package = "GRAB")
+OutputDir = system.file("results", package = "GRAB")
+OutputFile = paste0(OutputDir, "/simuOutput.txt")
+
+GRAB.Marker(objNull = obj.SPAGRM,
+            GenoFile = GenoFile,
+            OutputFile = OutputFile)
+```
+
+```
+# preview the results
+results = data.table::fread(OutputFile)
+print(results)
+
+#           Marker        Info    AltFreq AltCounts MissingRate      zScore    Pvalue   hwepval
+#     1:     SNP_1     1:1:G:A 0.39132706       749       0.043  0.21156824 0.8324439 0.3054106
+#     2:     SNP_2     1:2:G:A 0.45886076       870       0.052  1.29168799 0.1964652 0.5650432
+#     3:     SNP_3     1:3:G:A 0.39769150       758       0.047 -0.12118120 0.9035475 0.8631123
+#     4:     SNP_4     1:4:G:A 0.44867725       848       0.055  0.09807512 0.9218726 0.3074466
+#     5:     SNP_5     1:5:G:A 0.24293194       464       0.045 -1.63994666 0.1010163 0.2631180
+#    ---                                                                                       
+#  9996:  SNP_9996  1:9996:G:A 0.33889468       650       0.041 -0.06282245 0.9499079 0.2573180
+#  9997:  SNP_9997  1:9997:G:A 0.26399155       500       0.053 -0.15408692 0.8775412 0.2418564
+#  9998:  SNP_9998  1:9998:G:A 0.06427819       122       0.051 -0.49062723 0.6236901 0.5603254
+#  9999:  SNP_9999  1:9999:G:A 0.24250535       453       0.066 -0.65968239 0.5094577 0.2910454
+# 10000: SNP_10000 1:10000:G:A 0.14014752       266       0.051  1.12354821 0.2612047 0.2401637
+```
 
