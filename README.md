@@ -14,4 +14,4 @@ Like many other popular methods, such as [BOLT-LMM](https://alkesgroup.broadinst
 
 ![plot](https://raw.githubusercontent.com/Fantasy-XuHe/SPAGRM.github.io/main/docs/assets/images/workfolw%20of%20SPAGRM.png)
 
-See ****A scalable, accurate, and universal analysis framework to control for sample relatedness in large-scale genome-wide association studies and its application to 79 longitudinal traits in UK Biobank (to be updated)** for more details about the workflow of SPA<sub>GRM</sub>.
+See **A scalable, accurate, and universal analysis framework to control for sample relatedness in large-scale genome-wide association studies and its application to 79 longitudinal traits in UK Biobank (to be updated)** for more details about the workflow of SPA<sub>GRM</sub>.
