@@ -7,4 +7,4 @@ has_children: false
 has_toc: false
 ---
 
-**If you have any questions when using SPA<sub>GRM</sub>, please contact wenjianb@pku.edu.cn**
+If you have any questions when using SPA<sub>GRM</sub>, please contact **wenjianb@pku.edu.cn**
