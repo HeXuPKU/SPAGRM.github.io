@@ -96,8 +96,6 @@ getSparseGRM(PlinkFile,
 
 - <code style="color : darkred">rm.tempFiles</code>: optional. A logical value indicating if the temp files generated in <code style="color : darkorange">getTempFilesFullGRM</code> will be deleted. (default=FALSE)
 
-**<code style="color : red">Example:</code>**
-
 **Example:**
 
 ```
@@ -111,9 +109,9 @@ getSparseGRM(PlinkPrefix,
              relatednessCutoff = 0.05)
 ```
 
-## About the **SparseGRMFile**
+## About the <code style="color : darkyellow">SparseGRMFile</code>
 
-The below gives more details about the **SparseGRMFile**:
+The below gives more details about the <code style="color : darkyellow">SparseGRMFile</code>:
 
 ```
 SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
@@ -133,9 +131,9 @@ print(SparseGRM)
 # 2551: Subj-500 Subj-500 0.9783296
 ```
 
-`SparseGRMFile` will latter be used for calculating IBD probabilities. 
+<code style="color : darkyellow">SparseGRMFile</code> will latter be used for calculating IBD probabilities. 
 
 > **Note**  
-> - `GRAB` package implicitly uses `GCTA` software to make the sparse GRM. As required by `GCTA` software, the function `getSparseGRM` is only supported in Linux operation system and PLINK binary files with the same prefix are required.  
-> - If users use other software (e.g. `GCTA`) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly `ID1`, `ID2` and `Value`, separated by a tabulation (`\t`)!  
-> - User can also refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
+> - [**GRAB**](https://wenjianbi.github.io/grab.github.io/) package implicitly uses [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software to make the sparse GRM. As required by [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software, the function <code style="color : darkorange">getSparseGRM</code> is only supported in Linux operation system and PLINK binary files with the same prefix are required.  
+> - If users use other software (e.g. [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview)) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly <code style="color : darkyellow">ID1</code>, <code style="color : darkyellow">ID2</code> and <code style="color : darkyellow">Value</code>, separated by a tabulation (`\t`)!  
+> - User can also refer to [**GRAB**](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
