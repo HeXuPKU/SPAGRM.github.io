@@ -37,7 +37,7 @@ getTempFilesFullGRM(PlinkFile,
                     threadNum = 8)
 ```
 
-- `PlinkFile`: required. A path to PLINK files (without file extensions of bed/bim/fam).
+- <code style="color : gold">`PlinkFile`</code>: required. A path to PLINK files (without file extensions of bed/bim/fam).
 
 - `nPartsGRM`: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250.
 
