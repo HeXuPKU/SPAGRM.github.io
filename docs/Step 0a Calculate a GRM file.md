@@ -131,9 +131,9 @@ print(SparseGRM)
 # 2551: Subj-500 Subj-500 0.9783296
 ```
 
-<code style="color : yellow">SparseGRMFile</code> will latter be used for calculating IBD probabilities. 
+<code style="color : #FFD700">SparseGRMFile</code> will latter be used for calculating IBD probabilities. 
 
-> **Note**  
+> **Note**
 > - [**GRAB**](https://wenjianbi.github.io/grab.github.io/) package implicitly uses [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software to make the sparse GRM. As required by [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software, the function <code style="color : darkorange">getSparseGRM</code> is only supported in Linux operation system and PLINK binary files with the same prefix are required.  
 > - If users use other software (e.g. [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview)) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly <code style="color : darkyellow">ID1</code>, <code style="color : darkyellow">ID2</code> and <code style="color : darkyellow">Value</code>, separated by a tabulation (`\t`)!  
 > - User can also refer to [**GRAB**](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.
