@@ -7,7 +7,7 @@ parent: Step 1 Fit the null model
 has_children: false
 ---
 
-# Binary traits
+# **Binary traits**
 
 We can use a logistic regression to fit the null model for binary traits. That is ignoring random effects in mixed models. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
 
@@ -104,6 +104,6 @@ data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names =
 ```
 
 > **Note**  
-> - ResidMatFile has the same format regardless of phenotypes.
-> - The column name of ResidMatFile must be exactly `SubjID` in the first column and `Resid` in the second column.
-> - Each subject should match its corresponding residual. 
+> - <code style="color : fuchsia">ResidMatFile</code> has the same format regardless of testing $\beta$<sub>g</sub> or $\tau$<sub>g</sub>.
+> - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
+> - Each subject should match its corresponding residual.
