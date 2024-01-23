@@ -32,7 +32,7 @@ SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedne
   - Two individuals who have a non-zero element in sparse GRM is assumed in a family, and families are indipedent to each other.
 - Estimate precise distributions of genotypes.
   - GRM can be used to estimate the variance of genotypes. But it's limited to estimate more precise distributions of genotypes.
-  - To understand this, just see the above example. The kinship coefficient (half of the corrsponding element in GRM) for N-1 and N-3 is 0.25, and the the kinship coefficient for N-3 and N-4 is also 0.25. The kinship coefficient for these two pairs are same, but they are genetically different!
+  - To understand this, just see the above example. The kinship coefficient (half of the corrsponding element in GRM) for `N-1` and `N-3` is 0.25, and the the kinship coefficient for `N-3` and `N-4` is also 0.25. The kinship coefficient for these two pairs are same, but they are genetically different!
   - Therefore, we introduce identity by descent sharing probabilities, which can exactly describe the genotype distribution between two subjects.
 
 # **Identity by Descent (IBD)**
@@ -44,9 +44,9 @@ Denote $\delta$<sub>ij</sub><sup>(0)</sup>, $\delta$<sub>ij</sub><sup>(1)</sup>,
 
 To understand this, just see below examples.
 
-- N-1 and N-3 always share one allele in a genetic locus, so that their IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0, $\delta$<sub>ij</sub><sup>(1)</sup> = 1, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0. The kinship coefficient is 1/2 $\times$ 0 + 1/4 $\times$ 1 = 0.25.
-  - If genotype of N-1 is `AA` in one locus, then N-3 must have at least one `A` in this locus, regardless of other circumstances.
-  - If genotype of N-1 is `aa` in one locus, then N-3 must have at least one `a` in this locus, regardless of other circumstances.
+- `N-1` and `N-3` always share one allele in a genetic locus, so that their IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0, $\delta$<sub>ij</sub><sup>(1)</sup> = 1, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0. The kinship coefficient is 1/2 $\times$ 0 + 1/4 $\times$ 1 = 0.25.
+  - If genotype of `N-1` is <code style="color : gold">AA</code> in one locus, then `N-3` must have at least one <code style="color : red">A</code> in this locus, regardless of other circumstances.
+  - If genotype of `N-1` is <code style="color : orange">aa</code> in one locus, then `N-3` must have at least one <code style="color : orange">a</code> in this locus, regardless of other circumstances.
 
-- N-3 and N-4's IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0.25, $\delta$<sub>ij</sub><sup>(1)</sup> = 0.5, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0.25. The kinship coefficient is 1/2 $\times$ 0.25 + 1/4 $\times$ 0.5 = 0.25.
-  - If genotypes of N-1 and N-2 are both `Aa` in one locus, then there is a 0.25 probability that the genotype of N-3 is `AA`, a 0.5 probability that N-3 is `Aa`, and a 0.25 probability that N-3 is `aa`, so as N-4. Therefore, N-3 and N-4 have a 0.25 probability of sharing two alleles, a 0.5 probability of sharing one allele, and a 0.25 probability of sharing no alleles in one locus.
+- `N-3` and `N-4`'s IBD-sharing probabilities are $\delta$<sub>ij</sub><sup>(0)</sup> = 0.25, $\delta$<sub>ij</sub><sup>(1)</sup> = 0.5, and $\delta$<sub>ij</sub><sup>(2)</sup> = 0.25. The kinship coefficient is 1/2 $\times$ 0.25 + 1/4 $\times$ 0.5 = 0.25.
+  - If genotypes of `N-1` and `N-2` are both `Aa` in one locus, then there is a 0.25 probability that the genotype of `N-3` is `AA`, a 0.5 probability that `N-3` is `Aa`, and a 0.25 probability that `N-3` is `aa`, so as `N-4`. Therefore, `N-3` and `N-4` have a 0.25 probability of sharing two alleles, a 0.5 probability of sharing one allele, and a 0.25 probability of sharing no alleles in one locus.
