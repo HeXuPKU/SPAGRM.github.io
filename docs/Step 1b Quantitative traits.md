@@ -100,7 +100,7 @@ docker run -v /path/to/your/sparseGRM/:/sparseGRMDir \
   --IsOverwriteVarianceRatioFile=TRUE
 ```
 
-See [SAIGE documentation](https://saigegit.github.io/SAIGE-doc/) for more details about these commands. At the end of the page, we will show you some tips to convert our SparseGRMFile to SAIGE's required format.
+See [SAIGE documentation](https://saigegit.github.io/SAIGE-doc/) for more details about these commands. 
 
 ### Load step 1 product and obtain model residuals
 
@@ -133,39 +133,3 @@ data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names =
 > - <code style="color : fuchsia">ResidMatFile</code> has the same format regardless of testing $\beta$<sub>g</sub> or $\tau$<sub>g</sub>.
 > - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
-
-### Tips to convert our <code style="color : fuchsia">SparseGRMFile</code> to [SAIGE](https://saigegit.github.io/SAIGE-doc/) required format
-
-Here is a R code to convert our <code style="color : fuchsia">SparseGRMFile</code> to [SAIGE](https://saigegit.github.io/SAIGE-doc/) required format.
-
-```
-SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")
-sparseGRM = data.table::fread(SparseGRMFile)
-
-uniqeID = unique(c(sparseGRM$ID1, sparseGRM$ID2))
-nSubjects = length(uniqeID)
-nRelatedness = nrow(sparseGRM)
-
-header0 = "%%MatrixMarket matrix coordinate real symmetric"
-header = c(nSubjects, nSubjects, nRelatedness)
-
-ID1 = sparseGRM$ID1
-ID2 = sparseGRM$ID2
-Value = sparseGRM$Value
-
-posID1 = match(ID1, uniqeID)
-posID2 = match(ID2, uniqeID)
-
-SAIGE.SparseGRM = cbind(posID1, posID2, Value)
-SAIGE.SparseGRM = rbind(header, SAIGE.SparseGRM)
-
-data.table::fwrite(data.table::data.table(header0), file = "/path/to/your/sparseGRM/SAIGE_SparseGRM.txt",
-                   row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
-
-data.table::fwrite(SAIGE.SparseGRM, file = "/path/to/your/sparseGRM/SAIGE_SparseGRM.txt",
-                   scipen = 10,
-                   row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ", append = T)
-
-data.table::fwrite(data.table::data.table(uniqeID), file = "/path/to/your/sparseGRM/SAIGE_SparseGRMSampleID.txt",
-                   row.names = FALSE, col.names = FALSE, quote = FALSE, sep = " ")
-```
