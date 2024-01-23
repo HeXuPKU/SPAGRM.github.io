@@ -61,7 +61,7 @@ GRAB.Marker(objNull,
 
 The analysis results are written in a file of <code style="color : fuchsia">OutputFile</code>, which includes the following columns.
 
-- <code style="color : fuchsia">Marker</code>: marker IDs extracted from <code style="color : fuchsia">GenoFile</code> and <code style="color : fuchsia">GenoFileIndex</code>.
+- <code style="color : fuchsia">Marker</code>: marker IDs extracted from <code style="color : darkred">GenoFile</code> and <code style="color : darkred">GenoFileIndex</code>.
 - <code style="color : fuchsia">Info</code>: marker Information of <code style="color : fuchsia">"CHR:POS:REF:ALT"</code>. The order of REF/ALT depends on <code style="color : darkred">AlleleOrder</code>: <code style="color : fuchsia">"ref-first"</code> or <code style="color : fuchsia">"alt-first"</code>.
 - <code style="color : fuchsia">AltFreq</code>: alternative allele frequency (before genotype imputation, might be > 0.5). If the AltFreq of most markers are > 0.5, you should consider resetting <code style="color : darkred">AlleleOrder</code>.
 - <code style="color : fuchsia">AltCounts</code>: alternative allele counts (before genotype imputation).
