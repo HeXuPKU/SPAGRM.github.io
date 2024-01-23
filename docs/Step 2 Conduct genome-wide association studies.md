@@ -7,7 +7,7 @@ has_children: true
 has_toc: true
 ---
 
-# Genome-wide association studies
+# **Genome-wide association studies**
 
 We have demonstrated in step 1 that model residuals share the same format for a wide range of phenotypes and statistical models. Therefore, SPA<sub>GRM</sub> is particularly suitable for the analysis of complex traits with complicated structure, and the application of complex statistical models.
 
