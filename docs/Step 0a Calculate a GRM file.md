@@ -39,19 +39,19 @@ getTempFilesFullGRM(PlinkFile,
 
 - <code style="color : darkred">PlinkFile</code>: required. A path to PLINK files (without file extensions of bed/bim/fam).
 
-- `nPartsGRM`: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250.
+- <code style="color : darkred">nPartsGRM</code>: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set <code style="color : darkred">nPartsGRM=250</code>.
 
-- `partParallel`: required. A numeric value (from 1 to nPartsGRM) to split all jobs for parallel computation.
+- <code style="color : darkred">partParallel</code>: required. A numeric value (from 1 to <code style="color : darkred">partParallel</code>) to split all jobs for parallel computation.
 
-- `tempDir`: optional. A path to store temp files to be passed to `getSparseGRM`. Default is system.file("SparseGRM", "temp", package = "GRAB"). If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of `getSparseGRM`!
+- <code style="color : darkred">tempDir</code>: optional. A path to store temp files to be passed to <code style="color : darkorange">getSparseGRM</code>. Default is `system.file("SparseGRM", "temp", package = "GRAB")`. If the sample size > 100K, then the temporary files might need a large amount of space. This should be consistent to the input of <code style="color : darkorange">getSparseGRM</code>!
 
-- `subjData`: optional. A character vector to specify subject IDs to retain (i.e. IID). Default is NULL, i.e. all subjects are retained in sparse GRM.
+- <code style="color : darkred">subjData</code>: optional. A character vector to specify subject IDs to retain (i.e. IID). Default is NULL, i.e. all subjects are retained in sparse GRM.
 
-- `minMafGRM`: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
+- <code style="color : darkred">minMafGRM</code>: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
 
-- `maxMissingGRM`: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
+- <code style="color : darkred">maxMissingGRM</code>: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
 
-- `threadNum`: optional. Number of threads (CPUs) to use.
+- <code style="color : darkred">threadNum</code>: optional. Number of threads (CPUs) to use.
 
 **Example:**
 
@@ -67,7 +67,7 @@ for(partParallel in 1:nPartsGRM)
 }
 ```
 
-## Run **getSparseGRM** to combine the temporary files
+## Run <code style="color : darkorange">getSparseGRM</code> to combine the temporary files
 
 ```
 getSparseGRM(PlinkFile,
@@ -80,21 +80,23 @@ getSparseGRM(PlinkFile,
              rm.tempFiles = FALSE)
 ```
 
-- `PlinkFile`: required. A path to PLINK files (without file extensions of bed/bim/fam). It should be the same as used in `getTempFilesFullGRM` function.
+- <code style="color : darkred">PlinkFile</code>: required. A path to PLINK files (without file extensions of bed/bim/fam). It should be the same as used in <code style="color : darkorange">getTempFilesFullGRM</code> function.
 
-- `nPartsGRM`: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set nPartsGRM=250. It should be the same as used in `getTempFilesFullGRM` function.
+- <code style="color : darkred">nPartsGRM</code>: required. A numeric value (e.g. 250) to split subjects to multiple parts. For UK Biobank data analysis with ~500K samples, it is recommended to set <code style="color : darkred">nPartsGRM=250</code>. It should be the same as used in <code style="color : darkorange">getTempFilesFullGRM</code> function.
 
-- `SparseGRMFile`: required. A file path to store sparse GRM. (e.g. XXX.txt)
+- <code style="color : darkred">SparseGRMFile</code>: required. A file path to store sparse GRM. (e.g. XXX.txt)
 
-- `tempDir`: optional. A path to store temp files from `getTempFilesFullGRM`. Default is system.file("SparseGRM", "temp", package = "GRAB"). This should be consistent to the input of `getTempFilesFullGRM`!
+- <code style="color : darkred">tempDir</code>: optional. A path to store temp files from <code style="color : darkorange">getTempFilesFullGRM</code>. Default is `system.file("SparseGRM", "temp", package = "GRAB")`. This should be consistent to the input of <code style="color : darkorange">getTempFilesFullGRM</code>!
 
-- `relatednessCutoff`: optional. A cutoff for sparse GRM, only kinship coefficient greater than this cutoff will be retained in sparse GRM. (default=0.05)
+- <code style="color : darkred">relatednessCutoff</code>: optional. A cutoff for sparse GRM, only GRM elements greater than this cutoff will be retained in sparse GRM. (default=0.05)
 
-- `minMafGRM`: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
+- <code style="color : darkred">minMafGRM</code>: optional. Minimal value of MAF cutoff to select markers (from PLINK files) to make sparse GRM. (default=0.01)
 
-- `maxMissingGRM`: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
+- <code style="color : darkred">maxMissingGRM</code>: optional. Maximal value of missing rate to select markers (from PLINK files) to make sparse GRM. (default=0.1)
 
-- `rm.tempFiles`: optional. A logical value indicating if the temp files generated in `getTempFilesFullGRM` will be deleted. (default=FALSE)
+- <code style="color : darkred">rm.tempFiles</code>: optional. A logical value indicating if the temp files generated in <code style="color : darkorange">getTempFilesFullGRM</code> will be deleted. (default=FALSE)
+
+**<code style="color : red">Example:</code>**
 
 **Example:**
 
