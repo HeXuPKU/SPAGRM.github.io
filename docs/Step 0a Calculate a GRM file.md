@@ -24,7 +24,7 @@ Before next step, you should have below PLINK binary files:
 XXX.bed,   XXX.bim,   XXX.fam (XXX should be the same prefix of the PLINK binary files)
 ```
 
-## Run **getTempFilesFullGRM** to get temporary files
+## Run <code style="color : darkorange">getTempFilesFullGRM</code> to get temporary files
 
 ```
 getTempFilesFullGRM(PlinkFile,
