@@ -25,5 +25,5 @@ To conduct a GWAS analysis containing related subjects, users only need to fit t
 > - Cox PH model can be used for time-to-event trait analysis, and proportional odds logistic model can be used for categorical traits. 
 > - Users can try other statistical models for complex traits with more complicated structure if interested.
 > 3. **Fit the null model and obtain model residuals**
-> - The score statistic can be derived from the gradient of the likelihood function by fitting the null model. 
-> - Generally, The score statistic has the format of _S_ = _G<sup>T</sup>R_, where _G_ represents the genotype to be tested and _R_ is defined as the model residuals.
+> - The score statistics can be derived from the gradient of the likelihood function by fitting the null model. 
+> - Generally, The score statistics have the consistent format of _S_ = _G<sup>T</sup>R_, where _G_ represents the genotype to be tested and _R_ is defined as the model residuals.
