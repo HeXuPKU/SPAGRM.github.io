@@ -135,5 +135,5 @@ print(SparseGRM)
 
 > **Note**  
 > - `GRAB` package implicitly uses `GCTA` software to make the sparse GRM. As required by `GCTA` software, the function `getSparseGRM` is only supported in Linux operation system and PLINK binary files with the same prefix are required.  
-> - If users use other software (e.g. `GCTA`) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly `ID1`, `ID2` and `Value`!  
+> - If users use other software (e.g. `GCTA`) to calculate a sparse GRM file, please convert it to the form above. The column names of sparseGRM file should be exactly `ID1`, `ID2` and `Value`, separated by a tabulation (`\t`)!  
 > - User can also refer to [GRAB Sparse GRM](https://wenjianbi.github.io/grab.github.io/docs/GRM_sparse.html) to make a sparse GRM file.

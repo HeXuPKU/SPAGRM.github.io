@@ -95,7 +95,7 @@ print(PairwiseIBD)
 
 > **Note**  
 > - PairwiseIBDFile is only required for SPA<sub>GRM</sub> analysis. We do not recommend using PairwiseIBDFile for other purposes.
-> - If users use other software (e.g. `PLINK`) to calculate a pairwise IBD probability file, please convert it to the form above. The column names of PairwiseIBDFile should be exactly `ID1`, `ID2`, `pa`, `pb`, `pc`!  
+> - If users use other software (e.g. `PLINK`) to calculate a pairwise IBD probability file, please convert it to the form above. The column names of PairwiseIBDFile should be exactly `ID1`, `ID2`, `pa`, `pb`, `pc`, separated by a tabulation (`\t`)!  
 > - To save computation time, we only calculate and store pairwise IBD probabilities of related subjects.  
 > - The samples in PairwiseIBDFile should be a subset of the samples in SparseGRMFile. An error will occur if PairwiseIBDFile contains samples that is not in the corresponding SparseGRMFile in latter analysis!  
-> - If you restrict SPA<sub>GRM</sub> to analyze unrelated subjects, then SparseGRMFile and PairwiseIBDFile are also required. SparseGRMFile can consist of a table where `ID1` is equal to `ID2`, and Value is 1 in each line. PairwiseIBDFile can consist of an empty table with exactly column names of `ID1`, `ID2`, `pa`, `pb`, `pc`.
+> - If you restrict SPA<sub>GRM</sub> to analyze unrelated subjects, then SparseGRMFile and PairwiseIBDFile are also required. SparseGRMFile can consist of a table where `ID1` is equal to `ID2`, and `Value` is 1 in each line. PairwiseIBDFile can consist of an empty table with exactly column names of `ID1`, `ID2`, `pa`, `pb`, `pc`, separated by a tabulation (`\t`).
