@@ -131,7 +131,7 @@ print(SparseGRM)
 # 2551: Subj-500 Subj-500 0.9783296
 ```
 
-<code style="color : #FFD700">SparseGRMFile</code> will latter be used for calculating IBD probabilities. 
+<code style="color :  #E5B80B">SparseGRMFile</code> will latter be used for calculating IBD probabilities. 
 
 > **Note**
 > - [**GRAB**](https://wenjianbi.github.io/grab.github.io/) package implicitly uses [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software to make the sparse GRM. As required by [**GCTA**](https://yanglab.westlake.edu.cn/software/gcta/#Overview) software, the function <code style="color : darkorange">getSparseGRM</code> is only supported in Linux operation system and PLINK binary files with the same prefix are required.  
