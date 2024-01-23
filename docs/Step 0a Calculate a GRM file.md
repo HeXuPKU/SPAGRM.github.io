@@ -7,7 +7,7 @@ parent: Step 0 Calculate GRM and IBD files
 has_children: false
 ---
 
-# Make a Sparse GRM file
+# **Make a Sparse GRM file**
 
 ## Prepare PLINK binary files
 
@@ -24,7 +24,7 @@ Before next step, you should have below PLINK binary files:
 XXX.bed,   XXX.bim,   XXX.fam (XXX should be the same prefix of the PLINK binary files)
 ```
 
-## Run `getTempFilesFullGRM` to get temporary files
+## Run **getTempFilesFullGRM** to get temporary files
 
 ```
 getTempFilesFullGRM(PlinkFile,
@@ -67,7 +67,7 @@ for(partParallel in 1:nPartsGRM)
 }
 ```
 
-## Run `getSparseGRM` to combine the temporary files
+## Run **getSparseGRM** to combine the temporary files
 
 ```
 getSparseGRM(PlinkFile,
@@ -109,9 +109,9 @@ getSparseGRM(PlinkPrefix,
              relatednessCutoff = 0.05)
 ```
 
-## About the `SparseGRMFile`
+## About the **SparseGRMFile**
 
-The below gives more details about the `SparseGRMFile`:
+The below gives more details about the **SparseGRMFile**:
 
 ```
 SparseGRMFile = system.file("SparseGRM", "SparseGRM.txt", package = "GRAB")

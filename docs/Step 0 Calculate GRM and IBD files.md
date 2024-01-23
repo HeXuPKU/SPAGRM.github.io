@@ -19,7 +19,7 @@ has_toc: true
     </script>
 </head>
 
-# Genetic Relationship Matrix (GRM)
+# **Genetic Relationship Matrix (GRM)**
 
 The genetic relationship matrix (GRM) is the covariance matrix calculated from a set of genetic variants of the individuals. As an important ingredient in mixed models, GRM usually represents the genetic relatedness among individuals. When the entries of the GRM below a specified threshold (usually 0.05) are set to zero, the GRM is transformed into a sparse GRM, which is approximately equivalent to a family kinship matrix.
 
@@ -35,7 +35,7 @@ SPA<sub>GRM</sub> is a sparse-GRM-based approach to control for sample relatedne
   - To understand this, just see the above example. The kinship coefficient (half of the corrsponding element in GRM) for N-1 and N-3 is 0.25, and the the kinship coefficient for N-3 and N-4 is also 0.25. The kinship coefficient for these two pairs are same, but they are genetically different!
   - Therefore, we introduce identity by descent sharing probabilities, which can exactly describe the genotype distribution between two subjects.
 
-# Identity by Descent (IBD)
+# **Identity by Descent (IBD)**
 
 At a genetic locus, alleles that are inherited copies of a common ancestral allele are said to be identical by descent. The term identical by descent is
 generally used for referring to recent, rather than ancient, common ancestry. IBD-sharing probabilities are widely used in genetic analyses of samples with related individuals. 
