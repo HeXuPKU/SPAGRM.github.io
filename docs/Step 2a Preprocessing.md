@@ -19,15 +19,15 @@ has_children: false
     </script>
 </head>
 
-# Pre-calculation of the joint distribution of genotypes
+# **Pre-calculate joint distributions of genotypes**
 
-We can use `SPAGRM.NullModel` function in `GRAB` package to pre-calculate the joint distribution of genotypes. This function requires products of step 0 and 1.
+We can use <code style="color : darkorange">SPAGRM.NullModel</code> function in [**GRAB**](https://wenjianbi.github.io/grab.github.io/) package to pre-calculate the joint distribution of genotypes. This function requires products of step 0 and 1.
 
 ## Prepare input files
 
-`SPAGRM.NullModel` needs the `SparseGRMFile` and `PairwiseIBDFile` from step 0, and `ResidMatFile` from step 1. `SparseGRMFile` and `PairwiseIBDFile` only need to be calculated once for a certain cohort. `ResidMatFile` has the same format regardless of various phenotypes and statistical models.
+<code style="color : darkorange">SPAGRM.NullModel</code> needs the <code style="color : fuchsia">SparseGRMFile</code> and <code style="color : fuchsia">PairwiseIBDFile</code> from step 0, and <code style="color : fuchsia">ResidMatFile</code> from step 1. <code style="color : fuchsia">SparseGRMFile</code> and <code style="color : fuchsia">PairwiseIBDFile</code> only need to be calculated once for a certain cohort. <code style="color : fuchsia">ResidMatFile</code> has the same format regardless of various phenotypes and statistical models.
 
-## Run `SPAGRM.NullModel` to pre-calculate genotype distributions
+## Run <code style="color : darkorange">SPAGRM.NullModel</code> to pre-calculate genotype distributions
 
 ```
 SPAGRM.NullModel(ResidMatFile,
@@ -41,17 +41,17 @@ SPAGRM.NullModel(ResidMatFile,
                                 MAF_interval = c(0.0001, 0.0005, 0.001, 0.005, 0.01, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5)))
 ```
 
-- `ResidMatFile`: required. A path to the ResidMat file.
-- `SparseGRMFile`: required. A path to the sparse GRM file.
-- `PairwiseIBDFile`: required. A path to the pairwise IBD file.
-- `control`: optional. `control` is to specify a list of parameters for controlling the association testing process.
-  - `MaxQuantile`/`MinQuantile`/`OutlierRatio`: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; The interval of outlier detection is defined as $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ which divides model residuals into non-outliers and outliers.
-    - `MaxQuantile`: optional. Upper quantile, ranging from 0 to 1. (default=0.75)
-    - `MinQuantile`: optional. Lower quantile, ranging from 0 to 1. (default=0.25)
-    - `OutlierRatio`: optional. Multiples of IQR, more than 0. (default=1.5)
-  - `ControlOutlier`: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. (default=TRUE)
-  - `MaxNuminFam`： optional. Control the family size $\leq$ `MaxNuminFam` to remain computational efficiency. (default=5)
-  - `MAF_interval`: optional. we divide the minor allele frequency (MAF) region into several intervals and pre-calculate joint distributions of genotypes at each MAF cutoff.
+- <code style="color : darkred">ResidMatFile</code>: required. A path to the ResidMat file.
+- <code style="color : darkred">SparseGRMFile</code>: required. A path to the sparse GRM file.
+- <code style="color : darkred">PairwiseIBDFile</code>: required. A path to the pairwise IBD file.
+- <code style="color : darkred">control</code>: optional. <code style="color : darkred">control</code> is to specify a list of parameters for controlling the association testing process.
+  - <code style="color : darkred">MaxQuantile</code>/<code style="color : darkred">MinQuantile</code>/<code style="color : darkred">OutlierRatio</code>: we use these three parameters to divide model residuals into outliers and non-outliers. The interquartile range (IQR) is defined as $MaxQuantile - MinQuantile$; The interval of outlier detection is defined as $[MinQuantile - OutlierRatio \times IQR, MaxQuantile + OutlierRatio \times IQR]$ which divides model residuals into non-outliers and outliers.
+    - <code style="color : darkred">MaxQuantile</code>: optional. Upper quantile, ranging from 0 to 1. (default=0.75)
+    - <code style="color : darkred">MinQuantile</code>: optional. Lower quantile, ranging from 0 to 1. (default=0.25)
+    - <code style="color : darkred">OutlierRatio</code>: optional. Multiples of IQR, more than 0. (default=1.5)
+  - <code style="color : darkred">ControlOutlier</code>: optional. If TRUE, we will control the proportion of outliers $\leq$ 10% to remain computational efficiency. (default=TRUE)
+  - <code style="color : darkred">MaxNuminFam</code>： optional. Control the family size $\leq$ <code style="color : darkred">MaxQuantile</code> to remain computational efficiency. (default=5)
+  - <code style="color : darkred">MAF_interval</code>: optional. we divide the minor allele frequency (MAF) region into several intervals and pre-calculate joint distributions of genotypes at each MAF cutoff.
 
 **Example:**
 
@@ -95,5 +95,5 @@ save(obj.SPAGRM, file = objSPAGRMFile)
 ```
 
 > **Note**  
-> - If `ControlOutlier` is set TRUE, we will automatically alter `OutlierRatio` to make sure that the proportion of outliers $\leq$ 10%. But we suggest setting `ControlOutlier` to FALSE when analyzing ultra-rare variants and/or phenotypic distribution is extremely unbalanced.
-> - `MaxNuminFam` is set to 5 by default, in order to improve computing efficiency while maintaining accuracy. Our real data analysis indicates that increasing MaxNuminFam has **no** impact on the association results, but the run time will increase exponentially.
+> - If <code style="color : darkred">ControlOutlier</code> is set TRUE, we will automatically alter <code style="color : darkred">OutlierRatio</code> to make sure that the proportion of outliers $\leq$ 10%. But we suggest setting <code style="color : darkred">ControlOutlier</code> to FALSE when analyzing ultra-rare variants and/or phenotypic distribution is extremely unbalanced.
+> - <code style="color : darkred">MaxNuminFam</code> is set to 5 by default, in order to improve computing efficiency while maintaining accuracy. Our real data analysis indicates that increasing <code style="color : darkred">MaxNuminFam</code> has **no** impact on the association results, but the run time will increase exponentially.
