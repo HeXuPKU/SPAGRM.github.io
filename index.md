@@ -6,7 +6,7 @@ description: "Just the Docs is a responsive Jekyll theme with built-in search th
 permalink: /
 ---
 
-# Documentation for SPA<sub>GRM</sub> function
+# **Documentation for SPA<sub>GRM</sub>**
 
 SPA<sub>GRM</sub> is now implemented in the [GRAB package](https://wenjianbi.github.io/grab.github.io/). Please click here for download.
 
