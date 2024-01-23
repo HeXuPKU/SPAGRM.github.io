@@ -19,11 +19,11 @@ has_children: false
     </script>
 </head>
 
-# Conduct genome-wide association studies
+# **Conduct genome-wide association studies**
 
-We can use `GRAB.marker` function in GRAB package to conduct marker-level genome-wide association studies. `GRAB.marker` share many parameters in [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html). Click here for more details about these parameters.
+We can use <code style="color : darkorange">GRAB.marker</code> function in [**GRAB**](https://wenjianbi.github.io/grab.github.io/) package to conduct marker-level genome-wide association studies. <code style="color : darkorange">GRAB.marker</code> share many parameters in [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html). Click here for more details about these parameters.
 
-## Run `GRAB.marker` to conduct genome-wide association studies
+## Run <code style="color : darkorange">GRAB.marker</code> to conduct genome-wide association studies
 
 ```
 GRAB.Marker(objNull,
@@ -36,39 +36,39 @@ GRAB.Marker(objNull,
 
 **Command**
 
-- `objNull`: required. The output object of function `SPAGRM.NullModel` for SPA<sub>GRM</sub> method. For other methods (e.g. POLMM), it can be the output object of function `GRAB.NullModel`.
-- `GenoFile`: required. A character of genotype file. Currently, two types of genotype formats are supported: PLINK and BGEN. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-- `GenoFileIndex`: optional. Additional index files corresponding to the GenoFile. If _NULL_ (by default), the prefix is the same as `GenoFile`. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-- `OutputFile`: required. A character of output file to save the analysis results.
-- `OutputFileIndex`: optional. A character of output index file to record the end point.  If _NULL_ (by default), OutputFileIndex = paste0(OutputFile, ".index").
-- `control`: optional. A list of parameters for controlling function `GRAB.Marker`.
-  - `SPA_Cutoff`: a numeric value (default=2). If absolute value of observed score statistic $\geq$ `SPA_Cutoff` $\times$ its estimated standard error, saddlepoint approximation is applied; otherwise normal distribution approximation is applied.
-  - `zeta`: a numeric value (default=0). Initial value of saddle point. We use Newton iteration to find the root. This will converge faster if initial value is closer to the root.
-  - `tol`: a numeric value (default=1e-5). It decide the accuracy of Newton's iteration. Generally, tol=1e-4 is OK for a wide range of phenotypes. If model residuals are extremely unbalanced (e.g. when testing within-subject variability for longitudinal traits), `tol` should be 1e-5 or smaller.
-  - `impute_method`: a character, "mean" (default), "bestguess", or "none". Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-  - `missing_cutoff`: a numeric value (default=0.15). Markers with missing rate $>$ this value will be excluded from analysis.
-  - `min_maf_marker`: a numeric value (default=0.001). Markers with MAF $<$ this value will be excluded from analysis.
-  - `min_mac_marker`: a numeric value (default=20). Markers with minor allele count (MAC) < this value will be excluded from analysis.
-  - `nMarkersEachChunk`: number of markers (default=10000) in one chunk to output.
-  - `omp_num_threads`: (To be added later) a numeric value to specify the number of threads in OpenMP for parallel computation.
-  - `IDsToIncludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-  - `IDsToExcludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-  - `RangesToIncludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-  - `RangesToExcludeFile`: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
-  - `AlleleOrder`: for PLINK files, the default `AlleleOrder` = "alt-first"; for BGEN files, the default `AlleleOrder` = "ref-first". Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+- <code style="color : darkred">objNull</code>: required. The output object of function <code style="color : darkorange">SPAGRM.NullModel</code> for SPA<sub>GRM</sub> method. For other methods (e.g. [POLMM](https://github.com/WenjianBI/POLMM)), it can be the output object of function <code style="color : darkorange">GRAB.NullModel</code>.
+- <code style="color : darkred">GenoFile</code>: required. A character of genotype file. Currently, two types of genotype formats are supported: PLINK and BGEN. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+- <code style="color : darkred">GenoFileIndex</code>: optional. Additional index files corresponding to the GenoFile. If _NULL_ (by default), the prefix is the same as <code style="color : darkred">GenoFile</code>. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+- <code style="color : darkred">OutputFile</code>: required. A character of output file to save the analysis results.
+- <code style="color : darkred">OutputFileIndex</code>: optional. A character of output index file to record the end point.  If _NULL_ (by default), <code style="color : darkred">OutputFileIndex = paste0(OutputFile, ".index")</code>.
+- <code style="color : darkred">control</code>: optional. A list of parameters for controlling function <code style="color : darkorange">GRAB.marker</code>.
+  - <code style="color : darkred">SPA_Cutoff</code>: a numeric value (default=2). If absolute value of observed score statistic $\geq$ `SPA_Cutoff` $\times$ its estimated standard error, saddlepoint approximation is applied; otherwise normal distribution approximation is applied.
+  - <code style="color : darkred">zeta</code>: a numeric value (default=0). Initial value of saddle point. We use Newton iteration to find the root. This will converge faster if initial value is closer to the root.
+  - <code style="color : darkred">tol</code>: a numeric value (default=1e-5). It decide the accuracy of Newton's iteration. Generally, tol=1e-4 is OK for a wide range of phenotypes. If model residuals are extremely unbalanced (e.g. when testing within-subject variability for longitudinal traits), <code style="color : darkred">tol</code> should be 1e-5 or smaller.
+  - <code style="color : darkred">impute_method</code>: a character, <code style="color : fuchsia">"mean"</code>(default), <code style="color : fuchsia">"bestguess"</code>, or <code style="color : fuchsia">"none"</code>. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+  - <code style="color : darkred">missing_cutoff</code>: a numeric value (default=0.15). Markers with missing rate $>$ this value will be excluded from analysis.
+  - <code style="color : darkred">min_maf_marker</code>: a numeric value (default=0.001). Markers with MAF $<$ this value will be excluded from analysis.
+  - <code style="color : darkred">min_mac_marker</code>: a numeric value (default=20). Markers with minor allele count (MAC) < this value will be excluded from analysis.
+  - <code style="color : darkred">nMarkersEachChunk</code>: number of markers (default=10000) in one chunk to output.
+  - <code style="color : darkred">omp_num_threads</code>: (To be added later) a numeric value to specify the number of threads in OpenMP for parallel computation.
+  - <code style="color : darkred">IDsToIncludeFile</code>: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+  - <code style="color : darkred">IDsToExcludeFile</code>: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+  - <code style="color : darkred">RangesToIncludeFile</code>: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+  - <code style="color : darkred">RangesToExcludeFile</code>: Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
+  - <code style="color : darkred">AlleleOrder</code>: for PLINK files, the default <code style="color : darkred">AlleleOrder</code> = <code style="color : fuchsia">"alt-first"</code>; for BGEN files, the default <code style="color : darkred">AlleleOrder</code> = <code style="color : fuchsia">"ref-first"</code>. Click [GRAB.ReadGeno](https://wenjianbi.github.io/grab.github.io/docs/read_genotype.html) for more details.
 
 **Value**
 
-The analysis results are written in a file of `OutputFile`, which includes the following columns.
+The analysis results are written in a file of <code style="color : fuchsia">OutputFile</code>, which includes the following columns.
 
-- `Marker`: marker IDs extracted from `GenoFile` and `GenoFileIndex`.
-- `Info`: marker Information of "CHR:POS:REF:ALT". The order of REF/ALT depends on `AlleleOrder`: "ref-first" or "alt-first".
-- `AltFreq`: alternative allele frequency (before genotype imputation, might be > 0.5). If the AltFreq of most markers are > 0.5, you should consider resetting `AlleleOrder`.
-- `AltCounts`: alternative allele counts (before genotype imputation).
-- `MissingRate`: missing rate for each marker.
-- `zScore`: standardized score statistics, usually follows a standard normal distribution.
-- `Pvalue`: association test p-value for each marker.
-- `hwepval`: hardy weinberg equilibrium p-value for each marker.
+- <code style="color : fuchsia">Marker</code>: marker IDs extracted from <code style="color : fuchsia">GenoFile</code> and <code style="color : fuchsia">GenoFileIndex</code>.
+- <code style="color : fuchsia">Info</code>: marker Information of <code style="color : fuchsia">"CHR:POS:REF:ALT"</code>. The order of REF/ALT depends on <code style="color : darkred">AlleleOrder</code>: <code style="color : fuchsia">"ref-first"</code> or <code style="color : fuchsia">"alt-first"</code>.
+- <code style="color : fuchsia">AltFreq</code>: alternative allele frequency (before genotype imputation, might be > 0.5). If the AltFreq of most markers are > 0.5, you should consider resetting <code style="color : darkred">AlleleOrder</code>.
+- <code style="color : fuchsia">AltCounts</code>: alternative allele counts (before genotype imputation).
+- <code style="color : fuchsia">MissingRate</code>: missing rate for each marker.
+- <code style="color : fuchsia">zScore</code>: standardized score statistics, usually follows a standard normal distribution.
+- <code style="color : fuchsia">Pvalue</code>: association test p-value for each marker.
+- <code style="color : fuchsia">hwepval</code>: hardy weinberg equilibrium p-value for each marker.
 
 **Example**
 
@@ -108,4 +108,4 @@ print(results)
 ```
 
 > **Note**  
-> - You can also see [GRAB documentation](https://wenjianbi.github.io/grab.github.io/docs/overview.html) for more details about `GRAB.marker` function.
+> - You can also see [GRAB documentation](https://wenjianbi.github.io/grab.github.io/docs/overview.html) for more details about <code style="color : darkorange">GRAB.marker</code> function.
