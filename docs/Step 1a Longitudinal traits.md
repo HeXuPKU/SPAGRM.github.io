@@ -151,7 +151,7 @@ Please continue to run the following code in Julia
 ```
 rownames = nullmodel.ids
 
-ResidMatFile_beta = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile.txt"
+ResidMatFile_beta = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMat.txt"
 
 f1 = open(ResidMatFile_beta, "w")
 writedlm(f1, ["SubjID" "Resid"])
@@ -190,7 +190,7 @@ ResidMat_beta = CSV.read(ResidMatFile_beta, DataFrame)
 ```
 rownames = nullmodel.ids
 
-ResidMatFile_tau = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMatFile.txt"
+ResidMatFile_tau = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMat.txt"
 
 f2 = open(ResidMatFile_tau, "w")
 writedlm(f2, ["SubjID" "Resid"])
