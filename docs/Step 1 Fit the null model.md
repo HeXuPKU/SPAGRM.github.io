@@ -7,7 +7,7 @@ has_children: true
 has_toc: true
 ---
 
-# Fit the null model
+# **Fit the null model**
 
 SPA<sub>GRM</sub> is designed as a universal GWAS analysis framework for various complex traits, such as longitudinal, quantitative, binary traits, and more. 
 
