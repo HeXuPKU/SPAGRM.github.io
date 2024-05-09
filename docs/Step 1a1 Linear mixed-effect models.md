@@ -22,7 +22,7 @@ has_children: false
 
 # **Longitudinal traits**
 
-We can use  [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits. Another Julia package [TrajGWAS](https://github.com/OpenMendel/TrajGWAS.jl) is builded upon the [WiSER](https://github.com/OpenMendel/WiSER.jl) method and can also be used for model fitting. More details can be seen in [WiSER documentation](https://github.com/OpenMendel/WiSER.jl/blob/master/docs/src/model_fitting.md) or [TrajGWAS documentation](https://openmendel.github.io/TrajGWAS.jl/dev/). In this online tutorial, our main focus is to demonstrate how to obtain model residuals from the fitted null model.
+We display how to use [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits. Another Julia package [TrajGWAS](https://github.com/OpenMendel/TrajGWAS.jl) is builded upon the [WiSER](https://github.com/OpenMendel/WiSER.jl) method and can also be used for model fitting. More details can be seen in [WiSER documentation](https://github.com/OpenMendel/WiSER.jl/blob/master/docs/src/model_fitting.md) or [TrajGWAS documentation](https://openmendel.github.io/TrajGWAS.jl/dev/). In this online tutorial, our main focus is to demonstrate how to obtain model residuals from the fitted null model.
 
 ## Example data sets
 
