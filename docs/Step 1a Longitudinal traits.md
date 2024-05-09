@@ -32,7 +32,9 @@ We let $n$ denote the number of subjects, $m_i$ denote the number of measurement
 
 $$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + Z_{ij}^T \gamma_i + \varepsilon_{ij} $$ 
 
-where $y_{ij}$ is individual $i$'s measurement at occasion $j$, $X_{ij} (p\times1)$ and $Z_{ij} (q\times1)$ are two vector of covariates with fixed coefficient $\beta$ and random coefficient $\gamma_i$. $G_i$ is the genotype of a single variant with genetic effect $\beta_g$.
+where $y_{ij}$ is individual $i$'s measurement at occasion $j$, $X_{ij} (p\times1)$ and $Z_{ij} (q\times1)$ are two vector of covariates with fixed coefficient $\beta$ and random coefficient $\gamma_i$. $G_i$ is the genotype of a single variant with genetic effect $\beta_g$. Random term $\varepsilon_{ij}$ follows a normal distribution with a mean of zero and a standard error of $\sigma_{\varepsilon_{ij}}$.
+
+Linear mixed effect models are subject-specific methods that consider the correlation structure of repeated measures via the random coefficient $\gamma_i$. In GWAS, we scan te genome to test if $\beta_g=0$ (i.e. test if a genetic variant alter the mean level of the biomarker). Many tools can fit the above model
 
 ## **Generalized estimation equations**
 
