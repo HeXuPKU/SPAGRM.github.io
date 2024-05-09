@@ -34,7 +34,13 @@ $$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + Z_{ij}^T \gamma_i + \varepsilon_{ij} 
 
 where $y_{ij}$ is individual $i$'s measurement at occasion $j$, $X_{ij} (p\times1)$ and $Z_{ij} (q\times1)$ are two vector of covariates with fixed coefficient $\beta$ and random coefficient $\gamma_i$. $G_i$ is the genotype of a single variant with genetic effect $\beta_g$. Random term $\varepsilon_{ij}$ follows a normal distribution with a mean of zero and a standard error of $\sigma_{\varepsilon_{ij}}$.
 
-Linear mixed effect models are subject-specific methods that consider the correlation structure of repeated measures via the random coefficient $\gamma_i$. In GWAS, we scan te genome to test if $\beta_g=0$ (i.e. test if a genetic variant alter the mean level of the biomarker). Many tools can fit the above model
+Linear mixed effect models are subject-specific methods that consider the correlation structure of repeated measures via the random coefficient $\gamma_i$. In GWAS, we scan te genome to test if $\beta_g=0$ (i.e. test if a genetic variant alter the mean level of the biomarker). Many useful tools can fit the above model (e.g. [lme4](https://cran.r-project.org/web/packages/lme4/index.html) or [optimx](https://cran.r-project.org/web/packages/optimx/index.html) in R).
+
+Recently, TrajGWAS method introduced a mixed-effects multiple location scale model into large-scale longitudinal trait GWAS. Building on regular linear mixed effect models, they further formulated $\sigma_{\varepsilon_{ij}}$ via
+
+$$ \sigma_{\varepsilon_{ij}} = exp(W_{ij}^T \tau + G_i \tau_g + w_i) $$
+
+The standard error $\sigma_{\varepsilon_{ij}}$ is determined by covariate vector $W_{ij}$, genotype $G_i$, and a random intercept $w_i$.
 
 ## **Generalized estimation equations**
 
