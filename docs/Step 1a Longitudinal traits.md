@@ -40,10 +40,12 @@ Recently, TrajGWAS method introduced a mixed-effects multiple location scale mod
 
 $$ \sigma_{\varepsilon_{ij}} = exp(W_{ij}^T \tau + G_i \tau_g + w_i) $$
 
-The standard error $\sigma_{\varepsilon_{ij}}$ is determined by covariate vector $W_{ij}$, genotype $G_i$, and a random intercept $w_i$.
+The standard error $\sigma_{\varepsilon_{ij}}$ is determined by covariate vector $W_{ij}$, genotype $G_i$, and a random intercept $w_i$. This additional formula allows TrajGWAS to test genetic effects on within-subject (WS) variability (i.e. $\tau_g$), which is also an important risk factor for complex diseases. The Julia package [WiSER](https://github.com/OpenMendel/WiSER.jl) can fit the above model.
 
 ## **Generalized estimation equations**
 
-aaaaa
+Compared to linear mixed effect models, generalized estimation equations are another popular method for modeling longitudinal data. Generalized estimation equations are population average models that consider the correlation structure of repeated measures via various user-defined correlation structures. Use the same legend, a classic GEE model can be
 
+$$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + \varepsilon_{ij} $$ 
 
+where without random terms, generalized estimation equations assume $\varepsilon_{ij}$ follows a multivariate normal distribution with a mean of vector of zeros and a working correlation matrix. Commonly used correlation structures can be independent, exchangeable, autoregressive, and unstructured working correlation matrix. More details about this can be seen [elsewhere](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6433418/). In GWAS, we scan te genome to test if $\beta_g=0$ (i.e. test if a genetic variant alter the mean level of the biomarker). Many useful tools can fit the above model (e.g. [gee](https://cran.r-project.org/web/packages/gee/gee.pdf) or [geepack](https://cran.r-project.org/web/packages/geepack/index.html) in R).
