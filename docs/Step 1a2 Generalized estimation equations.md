@@ -130,6 +130,6 @@ ResidMat.ar1 = ResidMat.ar1 %>% mutate(Resid = scale(Resid)) # if sum(Resid) != 
 ```
 
 > **Note**  
-> - If sum of model residuals is not zero, we should rescale them to make sure it's zero. 
+> - If sum of model residuals is not zero, please rescale 
 > - The column names of <code style="color : fuchsia">ResidMat</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
