@@ -28,11 +28,11 @@ Linear mixed effect models and generalized estimation equations are two fundamen
 
 ## **Linear mixed effect models**
 
-Consider a commonly used Linear mixed effect model for modeling longitudinal data
+We let $n$ denote the number of subjects, $m_i$ denote the number of measurements for subject $i$, and $m=\sum_{i=1}^n m_i$ denote the total number of measurements for all subjects. Consider a commonly used Linear mixed effect model for modeling longitudinal data
 
 $$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + Z_{ij}^T \gamma_i + \varepsilon_{ij} $$ 
 
-where $y_{ij}$ is individual $i$'s measurement at occasion $j$.
+where $y_{ij}$ is individual $i$'s measurement at occasion $j$, $X_{ij} (p\times1)$ and $Z_{ij} (q\times1)$ are two vector of covariates with fixed coefficient $\beta$ and random coefficient $\gamma_i$. $G_i$ is the genotype of a single variant with genetic effect $\beta_g$.
 
 ## **Generalized estimation equations**
 
