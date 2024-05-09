@@ -95,5 +95,8 @@ save(obj.SPAGRM, file = objSPAGRMFile)
 ```
 
 > **Note**  
+> - Users should check model residuals in <code style="color : fuchsia">ResidMatFile</code> before running <code style="color : darkorange">SPAGRM.NullModel</code>, including: 
+>   1. If model residuals are all zeros or a constant number, please check the null model fitting;
+>   2. If sum of model residuals is **not** equal to zero, please rescale them to make sure the sum of model residuals is equal to zero.
 > - If <code style="color : darkred">ControlOutlier</code> is set TRUE, we will automatically alter <code style="color : darkred">OutlierRatio</code> to make sure that the proportion of outliers $\leq$ 10%. But we suggest setting <code style="color : darkred">ControlOutlier</code> to FALSE when analyzing ultra-rare variants and/or phenotypic distribution is extremely unbalanced.
 > - <code style="color : darkred">MaxNuminFam</code> is set to 5 by default, in order to improve computing efficiency while maintaining accuracy. Our real data analysis indicates that increasing <code style="color : darkred">MaxNuminFam</code> has **no** impact on the association results, but the run time will increase exponentially.
