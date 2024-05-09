@@ -22,4 +22,4 @@ has_children: false
 
 # **Generalized estimation equations**
 
-We display how to use [geepack](https://cran.r-project.org/web/packages/geepack/index.html) to fit the null model for longitudinal traits. In this online tutorial, our main focus is to demonstrate how to obtain model residuals from the fitted null model.
+We display how to use [geepack](https://cran.r-project.org/web/packages/geepack/index.html), a R package to fit the null model for longitudinal traits. In this online tutorial, our main focus is to demonstrate how to obtain model residuals from the fitted null model.
