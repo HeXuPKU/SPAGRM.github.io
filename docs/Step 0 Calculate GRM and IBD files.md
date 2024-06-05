@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Step 0 Calculate GRM and IBD files
-nav_enabled: true
 nav_order: 2
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: true
