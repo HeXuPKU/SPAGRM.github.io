@@ -1,7 +1,7 @@
 title: SPAGRM
 description: A tutorial on how to use SPAGRM.
 theme: just-the-docs
-nav_fold: false
+nav_expand_depth: 2
 
 baseurl: SPAGRM.github.io/
 url: https://fantasy-xuhe.github.io/
