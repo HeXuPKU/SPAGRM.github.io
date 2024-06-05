@@ -8,3 +8,9 @@ github_username:  Fantasy-XuHe
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
+
+html_theme = 'sphinx_book_theme'
+
+html_theme_options = {
+    "show_navbar_depth": 2
+}
