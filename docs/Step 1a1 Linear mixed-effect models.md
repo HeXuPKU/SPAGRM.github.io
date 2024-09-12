@@ -148,9 +148,7 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 #  "γ2: AGE"          -1.32643   0.0266415
 ```
 
-### Obtain model residuals
-
-### Obtain model residuals of testing $\beta$<sub>g</sub> = 0 (i.e., the mean profile)
+### Obtain model residuals of testing $\beta$<sub>g</sub> = 0 (i.e., the mean level)
 
 ```
 rownames = nullmodel.ids
@@ -189,43 +187,7 @@ ResidMat_beta = CSV.read(ResidMatFile_beta, DataFrame)
 #              985 rows omitted
 ```
 
-### Obtain model residuals of testing $\tau$<sub>g</sub> = 0 (i.e., the within-subject variability)
-
-```
-rownames = nullmodel.ids
-
-ResidMatFile_tau = split(PhenoFile,"simuLongPHENO.txt")[1] * "ResidMat.txt"
-
-f2 = open(ResidMatFile_tau, "w")
-writedlm(f2, ["SubjID" "Resid"])
-for j in 1:length(nullmodel.data)
-        Resid_tau = - sum(nm.data[j].diagDVRV)
-        writedlm(f2, [rownames[j] Resid_tau])
-end
-close(f2)
-
-ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
-# 1000×2 DataFrame
-#   Row │ SubjID    Resid      
-#       │ String15  Float64    
-# ──────┼──────────────────────
-#     1 │ Subj-1      6.63029
-#     2 │ Subj-10    10.1477
-#     3 │ Subj-100    6.96377
-#     4 │ Subj-101    2.00466
-#     5 │ Subj-102    0.762797
-#     6 │ Subj-103   -9.68518
-#     7 │ Subj-104    7.93268
-#   ⋮   │    ⋮          ⋮
-#   995 │ f9_4       -9.50279
-#   996 │ f9_5        1.54764
-#   997 │ f9_6       -7.54868
-#   998 │ f9_7        9.64257
-#   999 │ f9_8        1.72898
-#  1000 │ f9_9        0.151542
-#              987 rows omitted
-```
-
 > **Note**  
 > - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
+> - We did not observe any difference of fitting linear mixed models using [lme4](https://cran.r-project.org/web/packages/lme4/index.html) and [WiSER](https://github.com/OpenMendel/WiSER.jl) on the final results when testing longitudinal mean.
