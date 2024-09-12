@@ -1,15 +1,27 @@
 ---
 layout: default
-title: Binary traits
+title: Longitudinal trand
 nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
 has_children: false
 ---
 
-# **Binary traits**
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
 
-We can use a logistic regression to fit the null model for binary traits. That is ignoring random effects in mixed models. Or we can use a generalized linear mixed model to fit the null model and obtain residuals.
+# **Longitudinal trand**
+
+we plan to extend GWAS to other patterns harbored in the longitudinal trajectory. A notable example is the dynamic process (upward or downward) of complex traits after specific medical treatments or surgical procedures.
 
 ## Logistic regression
 

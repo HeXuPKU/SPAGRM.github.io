@@ -9,7 +9,7 @@ has_toc: true
 
 # **Fit the null model**
 
-SPA<sub>GRM</sub> is a scalable and accurate analysis framework to control for sample relatedness for various complex traits, including multiple endophenotypes for longitudinal traits (longitudinal mean, within-subject variability, and trand).
+SPA<sub>GRM</sub> is a scalable and accurate analysis framework to control for sample relatedness for various complex traits, including multiple patterns for longitudinal traits (longitudinal mean, within-subject variability, and trand).
 
 For SPA<sub>GRM</sub>, it is optional, rather than required, to incorporate a random effect to characterize sample relatedness. Therefore, SPA<sub>GRM</sub> is particularly suitable for the analysis of complex traits with complicated structure, and the application of complex statistical models.
 

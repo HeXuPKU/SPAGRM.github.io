@@ -132,4 +132,4 @@ ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
 > **Note**  
 > - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
-> - Above code is mostly the same as in [Linear mixed-effect models](https://hexupku.github.io/SPAGRM.github.io/docs/Step%201a1%20Linear%20mixed-effect%20models.html). In practice, model residuals for testing the mean and WS variability can be obtained simultaneously from the fitted WiSER model.
+> - Above codes are mostly the same as in [Linear mixed-effect models](https://hexupku.github.io/SPAGRM.github.io/docs/Step%201a1%20Linear%20mixed-effect%20models.html). In practice, model residuals for testing the mean and WS variability can be obtained simultaneously from the fitted WiSER model.
