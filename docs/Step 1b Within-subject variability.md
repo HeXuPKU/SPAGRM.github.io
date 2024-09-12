@@ -7,6 +7,18 @@ parent: Step 1 Fit the null model
 has_children: false
 ---
 
+<head>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            inlineMath: [['$','$']]
+            }
+        });
+    </script>
+</head>
+
 # **Within-subject variability**
 
 Recently, TrajGWAS method introduced a mixed-effects multiple location scale model into large-scale longitudinal trait GWAS. Building on regular linear mixed effect models, they further formulated $\sigma_{\varepsilon_{ij}}$ via
@@ -120,4 +132,4 @@ ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
 > **Note**  
 > - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
-> - Above code is mostly the same as in [Linear mixed-effect models](https://github.com/HeXuPKU/SPAGRM.github.io/blob/main/docs/Step%201a1%20Linear%20mixed-effect%20models.md#L86). In practice, model residuals for testing the mean and WS variability can be obtained simultaneously from the fitted WiSER model.
+> - Above code is mostly the same as in [Linear mixed-effect models](https://hexupku.github.io/SPAGRM.github.io/docs/Step%201a1%20Linear%20mixed-effect%20models.html). In practice, model residuals for testing the mean and WS variability can be obtained simultaneously from the fitted WiSER model.
