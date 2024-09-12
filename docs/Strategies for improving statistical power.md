@@ -17,7 +17,14 @@ We propose several strategies to further improve statistical power of longitudin
 
 # Rank-based inverse normal transformation
 
-Model residuals from fitted null model can be highly unbalanced, especially when testing within-subject (WS) variability. In this context, we find that using a rank-based inverse normal transformation for model residuals can improve empirical power greatly. 
+Model residuals from fitted null model can be highly unbalanced, especially when testing within-subject (WS) variability. In this context, we find that using a rank-based inverse normal transformation (INT) for model residuals can greatly improve empirical power. We propose SPA<sub>GRM(INT)</sub> in which inverse normal transformed model residuals are taken as input, and SPA<sub>GRM(CCT)</sub> in which p values from SPA<sub>GRM</sub> and SPA<sub>GRM(INT)</sub> are combined via Cauchy combination test (CCT). 
+
+## Prepare model residuals for SPA<sub>GRM(INT)</sub>
+
+```
+
+
+```
 
 # Change correlation structure
 
