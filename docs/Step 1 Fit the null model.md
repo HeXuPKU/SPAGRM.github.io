@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Step 1 Fit the null model
-nav_order: 3
+nav_order: 4
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 has_children: true
 has_toc: true
@@ -9,7 +9,7 @@ has_toc: true
 
 # **Fit the null model**
 
-SPA<sub>GRM</sub> is designed as a universal GWAS analysis framework for various complex traits, such as longitudinal, quantitative, binary traits, and more. 
+SPA<sub>GRM</sub> is designed as a universal GWAS analysis framework for various complex traits, including multiple endophenotypes for longitudinal traits (longitudinal mean, WS variability, and trand), and other trait types like quantitative, binary traits, and more. 
 
 For SPA<sub>GRM</sub>, it is optional, rather than required, to incorporate a random effect to characterize sample relatedness. Therefore, SPA<sub>GRM</sub> is particularly suitable for the analysis of complex traits with complicated structure, and the application of complex statistical models.
 
@@ -21,7 +21,7 @@ To conduct a GWAS analysis containing related subjects, users only need to fit t
 > - It's recommended to perform quality control (QC) for longitudinal traits.  
 > - Covariates can include age, gender, SNP-derived top principal components (PCs), Leave One Chromosome Out Polygenic Scores (LOCO-PGSs), and so on.  
 > 2. **Choose a suitable statistical model**  
-> - For example, we can use the mixed-effects multiple location scale models for longitudinal trait analysis.
+> - For example, we can use linear mixed models or generalized estimation equations for longitudinal trait analysis.
 > - We can use linear/logistic regression methods for quantitative/binary trait analysis.
 > - Users can try other statistical models for complex traits with more complicated structure if interested.
 > 3. **Fit the null model and obtain model residuals**
