@@ -22,9 +22,10 @@ has_children: false
 
 # **Linear mixed-effect models**
 
-We display how to use [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits. Another Julia package [TrajGWAS](https://github.com/OpenMendel/TrajGWAS.jl) is builded upon the [WiSER](https://github.com/OpenMendel/WiSER.jl) method and can also be used for model fitting. More details can be seen in [WiSER documentation](https://github.com/OpenMendel/WiSER.jl/blob/master/docs/src/model_fitting.md) or [TrajGWAS documentation](https://openmendel.github.io/TrajGWAS.jl/dev/). In this online tutorial, our main focus is to demonstrate how to obtain model residuals from the fitted null model.
+We first display how to use [lme4](https://cran.r-project.org/web/packages/lme4/index.html) in R to fit linear mixed model; We display how to use [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits.
 
-## Example data sets
+
+## Quick start for lme4
 
 Please run the following code in R
 
@@ -51,9 +52,40 @@ print(LongPheno)
 # 10515:   f9_9 50.21092      1  21.56067
 ```
 
+### Fit the null model
+
+```
+library(dplyr)
+library(tidyr)
+library(lme4)
+
+nullmodel = lmer(LongPheno ~ 1 + AGE + GENDER + (AGE|IID), data = LongPheno)
+
+summary(nullmodel)$coefficients
+#               Estimate Std. Error   t value
+# (Intercept) 37.1712626 1.10910848  33.51454
+# AGE         -0.3263161 0.02216986 -14.71891
+# GENDER       0.7080723 0.06096869  11.61370
+```
+
+### Obtain model residuals
+
+```
+ResidMat = LongPheno %>% mutate(Resid = summary(nullmodel)$residuals) %>% group_by(IID) %>% summarize(Resid = sum(Resid))
+
+names(ResidMat) = c("SubjID", "Resid") # rename the column names of ResidMat.
+
+ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
+data.table::fwrite(ResidMat, file = ResidMatFile, row.names = FALSE, col.names = TRUE)
+
+summary(ResidMat$Resid)
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#  -5.326  -1.073  -0.026   0.000   1.033   5.724 
+```
+
 ## Quick start for TrajGWAS
 
-Please run the following code in Julia
+Please run the following code in Julia. Julia package [TrajGWAS](https://github.com/OpenMendel/TrajGWAS.jl) is builded upon the [WiSER](https://github.com/OpenMendel/WiSER.jl) method and can also be used for model fitting. More details can be seen in [WiSER documentation](https://github.com/OpenMendel/WiSER.jl/blob/master/docs/src/model_fitting.md) or [TrajGWAS documentation](https://openmendel.github.io/TrajGWAS.jl/dev/). In this section, our main focus is to demonstrate how to obtain model residuals for testing $\beta$<sub>g</sub> = 0 (i.e., the mean level) from the fitted null model.
 
 ### Installation and library
 
@@ -70,39 +102,12 @@ solver = Ipopt.Optimizer(); solver_config = Dict("print_level"=>0, "mehrotra_alg
 # solver = NLopt.Optimizer(); solver_config = Dict("algorithm"=>:LD_LBFGS, "maxeval"=>4000)
 ```
 
-### Display the example data set
+### Fit the null model
 
 ```
 PhenoFile = "../GRAB/extdata/simuLongPHENO.txt" # please copy the filepath of simuLongPHENO.txt.
 LongPheno = CSV.read(PhenoFile, DataFrame)
-# 10515×4 DataFrame
-#    Row │ IID       AGE      GENDER  LongPheno 
-#        │ String15  Float64  Int64   Float64   
-# ───────┼──────────────────────────────────────
-#      1 │ Subj-1    49.7667       0    21.184  
-#      2 │ Subj-1    46.9762       0    22.6392 
-#      3 │ Subj-1    48.6039       0    22.999  
-#      4 │ Subj-1    48.4704       0    22.8883 
-#      5 │ Subj-1    50.5121       0    23.1773 
-#      6 │ Subj-1    47.5477       0    22.7587 
-#      7 │ Subj-1    50.2266       0    21.5066 
-#      8 │ Subj-1    50.2574       0    22.9993 
-#      9 │ Subj-1    49.1261       0    23.6902 
-#    ⋮   │    ⋮         ⋮       ⋮         ⋮     
-#  10508 │ f9_8      48.8736       1    18.8061 
-#  10509 │ f9_8      50.4701       1    22.4624 
-#  10510 │ f9_9      51.0203       1    24.1638 
-#  10511 │ f9_9      50.3452       1    19.047
-#  10512 │ f9_9      50.4438       1    24.2056
-#  10513 │ f9_9      51.5276       1    24.8624
-#  10514 │ f9_9      49.9013       1    23.1841
-#  10515 │ f9_9      50.2109       1    21.5607
-#                             10498 rows omitted
-```
 
-### Fit the null model
-
-```
 nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
                     @formula(LongPheno ~ 1 + AGE),
                     @formula(LongPheno ~ 1 + AGE + GENDER),
@@ -143,9 +148,7 @@ nullmodel = trajgwas(@formula(LongPheno ~ 1 + AGE + GENDER),
 #  "γ2: AGE"          -1.32643   0.0266415
 ```
 
-## Obtain model residuals
-
-Please continue to run the following code in Julia
+### Obtain model residuals
 
 ### Obtain model residuals of testing $\beta$<sub>g</sub> = 0 (i.e., the mean profile)
 
@@ -224,6 +227,5 @@ ResidMat_tau = CSV.read(ResidMatFile_tau, DataFrame)
 ```
 
 > **Note**  
-> - <code style="color : fuchsia">ResidMatFile</code> has the same format regardless of testing $\beta$<sub>g</sub> or $\tau$<sub>g</sub>.
 > - The column names of <code style="color : fuchsia">ResidMatFile</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.

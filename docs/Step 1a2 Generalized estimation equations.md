@@ -26,26 +26,28 @@ We display how to use [geepack](https://cran.r-project.org/web/packages/geepack/
 
 ## Example data sets
 
-We use local real data to display how to fit generalized estimation equations with different working correlation structures, because simulated longitudinal data are sensitive to working correlation structures.
-
 ```
-LongPheno = data.table::fread("../XXX.txt")
+PhenoFile = system.file("extdata", "simuLongPHENO.txt", package = "GRAB")
+print(PhenoFile)
+# "../GRAB/extdata/simuLongPHENO.txt"
+
+LongPheno = data.table::fread(PhenoFile)
 print(LongPheno)
-#           IID        AGE GENDER   LongPheno
-#    1: 1004781 -0.1664630      1 -0.07250354
-#    2: 1004781  0.2348185      1  1.02946310
-#    3: 1004781  0.3574603      1  1.01024275
-#    4: 1004781  0.4724219      1  1.02946310
-#    5: 1004781  0.5535525      1  0.78600535
-#   ---
-# 8649: 6016004 -1.2958463      1 -0.40565625
-# 8650: 6016004 -1.2257652      1 -0.77084287
-# 8651: 6016004 -1.0657243      1 -0.57223260
-# 8652: 6016004 -0.9316269      1 -0.55301225
-# 8653: 6016004 -0.7729337      1 -0.78365643
+#           IID      AGE GENDER LongPheno
+#     1: Subj-1 49.76668      0  21.18404
+#     2: Subj-1 46.97617      0  22.63922
+#     3: Subj-1 48.60388      0  22.99897
+#     4: Subj-1 48.47036      0  22.88830
+#     5: Subj-1 50.51208      0  23.17735
+#    ---                                 
+# 10511:   f9_9 50.34522      1  19.04696
+# 10512:   f9_9 50.44379      1  24.20562
+# 10513:   f9_9 51.52763      1  24.86237
+# 10514:   f9_9 49.90129      1  23.18408
+# 10515:   f9_9 50.21092      1  21.56067
 ```
 
-## Fit the null model
+## Exchangeable working correlation structure
 
 ```
 library(dplyr)
@@ -53,38 +55,36 @@ library(tidyr)
 library(geepack)
 
 # we must keep the order of subjects in LongPheno and frq the same!
-LongPheno = LongPheno %>% arrange(IID)
+LongPheno = LongPheno %>% arrange(IID) # We highly recommend sorting by IID first.
+
 frq = LongPheno %>% group_by(IID) %>% summarize(n = n())
+LongPheno = LongPheno %>% mutate(pseudoIID = rep(1:nrow(frq), times = frq$n))
 
-nullmodel_exc = geeglm(LongPheno ~ AGE + GENDER, data = LongPheno, id = IID, corstr = "exc") # for exchangeable working correlation structure
+nullmodel_exc = geeglm(LongPheno ~ AGE + GENDER, data = LongPheno, id = pseudoIID, corstr = "exc") # for exchangeable working correlation structure
 
-nullmodel_ar1 = geeglm(LongPheno ~ AGE + GENDER, data = LongPheno, id = IID, corstr = "ar1") # for autoregressive working correlation structure
+summary(nullmodel_exc)$coefficients
+#             Estimate Std.err    Wald  Pr(>|W|)
+# (Intercept)  37.1621 1.13814 1066.12 0.000e+00
+# AGE          -0.3261 0.02277  205.03 0.000e+00
+# GENDER        0.7055 0.09318   57.31 3.719e-14
 ```
 
 ### Calculate working correlation matrix
 
 ```
 working.matrix_exc = matrix(nullmodel_exc$geese$alpha, nrow = max(frq$n), ncol = max(frq$n)); diag(working.matrix_exc) = 1 # for exchangeable working correlation structure
+
 print(working.matrix_exc[1:4,1:4])
-#          [,1]     [,2]     [,3]     [,4]
-# [1,] 1.000000 1.034182 1.034182 1.034182
-# [2,] 1.034182 1.000000 1.034182 1.034182
-# [3,] 1.034182 1.034182 1.000000 1.034182
-# [4,] 1.034182 1.034182 1.034182 1.000000
-
-working.matrix_ar1 = toeplitz(1 * nullmodel_ar1$geese$alpha^(0:(max(frq$n)-1))) # for autoregressive working correlation structure
-print(working.matrix_ar1[1:4,1:4])
-#          [,1]     [,2]     [,3]     [,4]
-# [1,] 1.000000 1.006522 1.013086 1.019693
-# [2,] 1.006522 1.000000 1.006522 1.013086
-# [3,] 1.013086 1.006522 1.000000 1.006522
-# [4,] 1.019693 1.013086 1.006522 1.000000
+#        [,1]   [,2]   [,3]   [,4]
+# [1,] 1.0000 0.2009 0.2009 0.2009
+# [2,] 0.2009 1.0000 0.2009 0.2009
+# [3,] 0.2009 0.2009 1.0000 0.2009
+# [4,] 0.2009 0.2009 0.2009 1.0000
 ```
 
-## Obtain model residuals
+### Obtain model residuals
 
 ```
-# for exchangeable working correlation structure
 modelreisd_exc = c()
 pos = 0
 for(i in 1:nrow(frq))
@@ -100,14 +100,52 @@ ResidMat.exc = LongPheno %>%
   rename(SubjID = IID)
 
 summary(ResidMat.exc$Resid)
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
-# -3.3556 -0.3262  0.1587  0.1336  0.6741  2.0067
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# -15.606  -3.199  -0.093  -0.010   3.008  16.631
 
-ResidMat.exc = ResidMat.exc %>% mutate(Resid = scale(Resid)) # if sum(Resid) != 0, we should rescale it!
+ResidMat.exc = ResidMat.exc %>% mutate(Resid = scale(Resid)) # if sum(Resid) != 0, we should rescale it! This often happens in real data analysis.
+
+ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
+data.table::fwrite(ResidMat.exc, file = ResidMatFile, row.names = FALSE, col.names = TRUE)
 ```
 
+## Autoregressive working correlation structure
+
 ```
-# for autoregressive working correlation structure
+library(dplyr)
+library(tidyr)
+library(geepack)
+
+# we must keep the order of subjects in LongPheno and frq the same!
+LongPheno = LongPheno %>% arrange(IID) # We highly recommend sorting by IID first.
+
+frq = LongPheno %>% group_by(IID) %>% summarize(n = n())
+LongPheno = LongPheno %>% mutate(pseudoIID = rep(1:nrow(frq), times = frq$n))
+
+nullmodel_ar1 = geeglm(LongPheno ~ AGE + GENDER, data = LongPheno, id = pseudoIID, corstr = "ar1") # for autoregressive working correlation structure
+
+summary(nullmodel_ar1)$coefficients
+#             Estimate Std.err   Wald  Pr(>|W|)
+# (Intercept)  36.2439  1.1755 950.71 0.000e+00
+# AGE          -0.3079  0.0235 171.64 0.000e+00
+# GENDER        0.7143  0.0883  65.44 5.551e-16
+```
+
+### Calculate working correlation matrix
+
+```
+working.matrix_ar1 = toeplitz(1 * nullmodel_ar1$geese$alpha^(0:(max(frq$n)-1))) # for autoregressive working correlation structure
+print(working.matrix_ar1[1:4,1:4])
+#        [,1]   [,2]   [,3]   [,4]
+# [1,] 1.0000 0.4982 0.2482 0.1236
+# [2,] 0.4982 1.0000 0.4982 0.2482
+# [3,] 0.2482 0.4982 1.0000 0.4982
+# [4,] 0.1236 0.2482 0.4982 1.0000
+```
+
+## Obtain model residuals
+
+```
 modelreisd_ar1 = c()
 pos = 0
 for(i in 1:nrow(frq))
@@ -123,13 +161,16 @@ ResidMat.ar1 = LongPheno %>%
   rename(SubjID = IID)
 
 summary(ResidMat.ar1$Resid)
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
-# -3.4018 -0.3660  0.1135  0.1100  0.6058  1.9233
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# -18.786  -3.637  -0.085  -0.031   3.543  18.491 
 
-ResidMat.ar1 = ResidMat.ar1 %>% mutate(Resid = scale(Resid)) # if sum(Resid) != 0, we should rescale it!
+ResidMat.ar1 = ResidMat.ar1 %>% mutate(Resid = scale(Resid)) # if sum(Resid) != 0, we should rescale it! This often happens in real data analysis.
+
+ResidMatFile = system.file("extdata", "ResidMat.txt", package = "GRAB")
+data.table::fwrite(ResidMat.ar1, file = ResidMatFile, row.names = FALSE, col.names = TRUE)
 ```
 
 > **Note**  
-> - If sum of model residuals is not zero, please rescale 
+> - If the sum of model residuals is not zero, please rescale them.
 > - The column names of <code style="color : fuchsia">ResidMat</code> must be exactly <code style="color : fuchsia">SubjID</code> in the first column and <code style="color : fuchsia">Resid</code> in the second column.
 > - Each subject should match its corresponding residual.
