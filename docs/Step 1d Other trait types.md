@@ -5,6 +5,7 @@ nav_order: 4
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
 has_children: true
+has_toc: true
 ---
 
 # **Other trait types**
