@@ -22,7 +22,7 @@ has_children: false
 
 # **Linear mixed-effect models**
 
-We first display how to use [lme4](https://cran.r-project.org/web/packages/lme4/index.html) in R to fit linear mixed model; We display how to use [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits.
+We first display how to use [lme4](https://cran.r-project.org/web/packages/lme4/index.html) in R to fit linear mixed model. We also display how to use [WiSER](https://github.com/OpenMendel/WiSER.jl), a Julia package to fit the null model for longitudinal traits.
 
 
 ## Quick start for lme4
