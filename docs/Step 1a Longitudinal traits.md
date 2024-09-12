@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Longitudinal traits
+title: Longitudinal mean trajectory
 nav_order: 1
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
@@ -20,7 +20,7 @@ has_toc: true
     </script>
 </head>
 
-# **Longitudinal traits**
+# **Longitudinal mean trajectory**
 
 In GWAS, longitudinal traits are those phenotype data measured longitudinally or repeatedly for each individual in the sample. Longitudinal traits can characterize the evolution of health status. Thus, the application of GWAS to longitudinal traits is expected to yield novel discoveries.
 
