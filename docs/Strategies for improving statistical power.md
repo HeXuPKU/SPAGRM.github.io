@@ -7,13 +7,13 @@ has_children: false
 has_toc: false
 ---
 
-aaaaa
+We propose several strategies to further improve statistical power of longitudinal trait analysis, summarized as follows:
 
-aaaaaaaaaa
+| Strategies | Longitudinal mean | WS variability | Longitudinal trand |
+|:----------:|:-----------------:|:--------------:|:------------------:|
+| Rank-based inverse normal transformation | No impact | More powerful | No impact |
+| Changeing correlation structure | Sometimes more powerful | Not evaluate | No impact |
+| Polygenic score (PGS) adjustment  | More powerful | No impact | No impact |
 
-
-
-aaaaaaaaa
-
-
+aaaa
 
