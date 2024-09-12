@@ -12,8 +12,18 @@ We propose several strategies to further improve statistical power of longitudin
 | Strategies | Longitudinal mean | WS variability | Longitudinal trand |
 |:----------:|:-----------------:|:--------------:|:------------------:|
 | Rank-based inverse normal transformation | No impact | More powerful | No impact |
-| Changeing correlation structure | Sometimes more powerful | Not evaluate | No impact |
+| Change correlation structure | Sometimes more powerful | Not evaluate | Not evaluate |
 | Polygenic score (PGS) adjustment  | More powerful | No impact | No impact |
 
-aaaa
+# Rank-based inverse normal transformation
+
+Model residuals from fitted null model can be highly unbalanced, especially when testing within-subject (WS) variability. In this context, we find that using a rank-based inverse normal transformation for model residuals can improve empirical power greatly. 
+
+# Change correlation structure
+
+
+
+# Polygenic score (PGS) adjustment
+
+
 
