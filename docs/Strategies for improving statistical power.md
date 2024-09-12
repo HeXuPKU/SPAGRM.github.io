@@ -40,9 +40,12 @@ summary(ResidMat$Resid)
 
 ## Change correlation structure
 
-
+Repeated measurements within each subject can be correlated. Linear mixed effect models consider the correlation via the random effect (and random slope), while generalized estimation equations require pre-defined working correlation metrics (e.g, exchangeable and autoregressive working correlation structures). We find that these two methods are rubost against correlation structure missicification (i.e., well controlled type I error rates), while empirical power varies depending on the data generating mechanism. Since no methods are omnibus, indicating that different longitudinal traits could correspond to different architectures. We propose SPA<sub>GRM(CCT)</sub> that combines p values from SPA<sub>GRM</sub> using various working correlation structures. For preparing model residuals of GEE model with various correlation structures, user can refer to [Generalized estimation equations](https://hexupku.github.io/SPAGRM.github.io/docs/Step%201a2%20Generalized%20estimation%20equations.html). To combine p values via CCT, user can refer to [ACAT](https://github.com/yaowuliu/ACAT).
 
 ## Polygenic score (PGS) adjustment
 
+Recent reports have shown that adjusting for PGSs can account for polygenic effects and increase statistical power. Similarly, SPA<sub>GRM</sub> can further gain statistical power through incorporating polygenic scores (PGSs) as covariates with fixed effects. We employ this idea to implement a two-stage strategy, SPAGRM-PGS:
+ - In stage 1, we conduct the first round of GWAS via SPAGRM and then calculate the Leave One Chromosome Out (LOCO)-PGS based on the summary statistics. 
+ - In stage 2, the LOCO-PGS is included as an additional covariate for a second round of GWAS via SPAGRM. 
 
-
+This is a general strategy, and currently, we do not possess a function that can directly execute this functionality. In [SPA<sub>GRM</sub> reproducibility](https://github.com/HeXuPKU/SPAGRM/tree/main/real_data/5.PRS_adjustment%20(optional)), we displayed how to construct LOCO-PGSs via the clumping and thresholding (C+T) method based on summary statistics of SPA<sub>GRM</sub>. We plan to add a function to approximate marginal genetic effects to facilitate PGS construction.
