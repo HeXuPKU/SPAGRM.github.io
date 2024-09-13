@@ -7,7 +7,7 @@ has_children: false
 has_toc: false
 ---
 
-# Strategies for improving statistical power
+# **Strategies for improving statistical power**
 
 We propose several strategies to further improve statistical power of longitudinal trait analysis, summarized as follows:
 
