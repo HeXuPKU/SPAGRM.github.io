@@ -8,7 +8,7 @@ permalink: /
 
 # **Documentation for SPA<sub>GRM</sub>**
 
-SPA<sub>GRM</sub> is now implemented in the [**GRAB**](https://wenjianbi.github.io/grab.github.io/). Please click here for download.
+SPA<sub>GRM</sub> is now implemented in the [**GRAB** package](https://wenjianbi.github.io/grab.github.io/). Please click here for download.
 
 SPA<sub>GRM</sub> is a scalable and accurate analysis framework to control for sample relatedness in large-scale genome-wide association studies (GWAS). In the paper [SPA<sub>GRM</sub>: effectively controlling for sample relatedness in large-scale genome-wide association studies of longitudinal traits](https://www.nature.com/articles/s41467-025-56669-1), we applied SPA<sub>GRM</sub> to analyze 79 longitudinal traits extracted from UK Biobank primary care data, identifying 7,463 genetic loci, making a pioneering attempt to conduct GWAS for these traits as longitudinal traits.
 
