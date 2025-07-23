@@ -6,7 +6,7 @@
 
 SPA<sub>GRM</sub> is a scalable, accurate, and universal analysis framework to control for sample relatedness in large-scale genome-wide association studies (GWAS). In the paper [SPA<sub>GRM</sub>: effectively controlling for sample relatedness in large-scale genome-wide association studies of longitudinal traits](https://www.nature.com/articles/s41467-025-56669-1), we applied SPA<sub>GRM</sub> to analyze 79 longitudinal traits extracted from UK Biobank primary care data, identifying 7,463 genetic loci, making a pioneering attempt to conduct GWAS for these traits as longitudinal traits. 
 
-Like many other popular methods, such as [BOLT-LMM](https://alkesgroup.broadinstitute.org/BOLT-LMM/BOLT-LMM_manual.html), [SAIGE](https://saigegit.github.io/SAIGE-doc/), [fastGWA](https://yanglab.westlake.edu.cn/software/gcta/#Overview), [REGENIE](https://rgcgithub.github.io/regenie/), [GATE](https://github.com/weizhou0/GATE), and [POLMM](https://github.com/WenjianBI/POLMM), SPA<sub>GRM</sub> is also a two-step method to control for sample relatedness in large-scale cohort. It consists of:
+Like many other popular methods, SPA<sub>GRM</sub> is also a two-step method to control for sample relatedness in large-scale cohort. It consists of:
 
 - In step 1, SPA<sub>GRM</sub> fits a null model to adjust for the effect of covariates on phenotypes and calculate model residuals. It is optional, rather than required, to incorporate the random effect into null model fitting to characterize the sample relatedness. 
 
