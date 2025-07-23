@@ -33,7 +33,7 @@ SAGELD consists of two steps:
 
 2) use a matrix projection strategy to construct test statistics and then apply SPA<sub>GRM</sub> to conduct GWAS while controlling for sample relatedness.
 
-## Quick start for lme4
+## **Quick start for lme4**
 
 Please run the following code in R
 
@@ -233,6 +233,6 @@ nullmodel = glmmTMB::glmmTMB(LongPheno ~ AGE + GENDER + (AGE|IID), data = LongPh
 obj.GALLOP = SAGELD.NullModel(NullModel = nullmodel,
                               UsedMethod = "GALLOP")
 ```
->> other parameters will be out of use, the method will perform GALLOP algorithm, and the GWAS results will have two additional columns: 
+> other parameters will be out of use, the method will perform GALLOP algorithm, and the GWAS results will have two additional columns: 
 >> - <code style="color : fuchsia">Beta_G</code>: effect size estimates for SNP main effects.
 >> - <code style="color : fuchsia">zScore_GxE</code>: effect size estimates for SNP GxE effects.
