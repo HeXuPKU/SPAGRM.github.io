@@ -235,4 +235,4 @@ obj.GALLOP = SAGELD.NullModel(NullModel = nullmodel,
 ```
 > other parameters will be out of use, the method will perform GALLOP algorithm, and the GWAS results will have two additional columns: 
 >> - <code style="color : fuchsia">Beta_G</code>: effect size estimates for SNP main effects.
->> - <code style="color : fuchsia">zScore_GxE</code>: effect size estimates for SNP GxE effects.
+>> - <code style="color : fuchsia">Beta_GxE</code>: effect size estimates for SNP GxE effects.
