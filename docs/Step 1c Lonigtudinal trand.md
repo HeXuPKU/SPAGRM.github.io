@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Longitudinal trand
+title: Longitudinal trajectory
 nav_order: 3
 description: "Just the Docs is a responsive Jekyll theme with built-in search that is easily customizable and hosted on GitHub Pages."
 parent: Step 1 Fit the null model
-has_children: false
+has_children: true
+has_toc: true
 ---
 
 <head>
@@ -19,10 +20,16 @@ has_children: false
     </script>
 </head>
 
-# **Longitudinal trand**
+# **Longitudinal trajectory**
 
-we plan to extend GWAS to other patterns harbored in the longitudinal trajectory. A notable example is the dynamic process (upward or downward) of complex traits after specific medical treatments or surgical procedures. To characterize this process, we add a gene-environment interaction term to the linear mixed model
+We propose SAGELD, a method for gene-environment interaction analysis of longitudinal traits while controlling for sample relatedness. Consider a linear mixed model:
 
-$$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + (G_i \circ T_{ij}) \beta_{g\times t} + Z_{ij}^T \gamma_i + \varepsilon_{ij} $$ 
+$$ y_{ij} = X_{ij}^T \beta + G_i \beta_g + (G_i \circ E_{ij}) \beta_{g\times e} + Z_{ij}^T \gamma_i + \varepsilon_{ij} $$ 
 
-where $T$ is a time-varying variable (e.g., age or medication) that changes with time. We primarily focus on testing $\beta_{g\times t}=0$.
+where $E$ is a time-varying variable (e.g., age or BMI) that changes within subjects. We primarily focus on testing $\beta_{g\times e}=0$.
+
+SAGELD consists of two steps:
+
+1) fit an LMM without any genetic variant (i.e., $H_c:\beta_g=\beta_{g\times e}=0$), and estimate model parameters and calculate residuals.
+
+2) use a matrix projection strategy to construct test statistics and then apply SPA<sub>GRM</sub> to conduct GWAS while controlling for sample relatedness.
