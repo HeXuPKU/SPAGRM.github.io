@@ -9,6 +9,6 @@ has_children: false
 ---
 
 
-# **Quantitative traits**
+# **SAGELD step 2**
 
 We can use a linear regression to fit the null model for quantitative traits. That is ignoring random effects in mixed models. Or we can use a linear mixed model to fit the null model and obtain residuals.
